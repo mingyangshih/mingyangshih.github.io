@@ -20,17 +20,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to">
+<meta name="description" content="Install WebpackInstall Webpack to Project12345678#安裝最新的穩定版本到專案並存在package.jsonnpm i webpack --save # 安裝指定版本npm install webpack@&lt;version&gt;# 安裝最新的體驗版本npm install webpack@beta  Install Webpack to G">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack Note">
 <meta property="og:url" content="http://example.com/2021/06/30/webpack-01/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to">
+<meta property="og:description" content="Install WebpackInstall Webpack to Project12345678#安裝最新的穩定版本到專案並存在package.jsonnpm i webpack --save # 安裝指定版本npm install webpack@&lt;version&gt;# 安裝最新的體驗版本npm install webpack@beta  Install Webpack to G">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-30T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-01T02:14:03.668Z">
+<meta property="article:modified_time" content="2021-07-01T13:33:40.759Z">
 <meta property="article:author" content="Clayton Shih">
-<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
 
 
@@ -108,7 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webpack"><span class="nav-number">1.</span> <span class="nav-text">Install Webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Webpack-to-Project"><span class="nav-number">1.1.</span> <span class="nav-text">Install Webpack to Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Webpack-to-Global-Enviroment"><span class="nav-number">1.2.</span> <span class="nav-text">Install Webpack to Global Enviroment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Webpack"><span class="nav-number">1.3.</span> <span class="nav-text">Use Webpack</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,7 +197,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-01 02:14:03" itemprop="dateModified" datetime="2021-07-01T02:14:03+00:00">2021-07-01</time>
+        <time title="Modified: 2021-07-01 13:33:40" itemprop="dateModified" datetime="2021-07-01T13:33:40+00:00">2021-07-01</time>
       </span>
 
   
@@ -212,18 +212,29 @@
     <div class="post-body" itemprop="articleBody">
         <!-- Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues). -->
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Install-Webpack"><a href="#Install-Webpack" class="headerlink" title="Install Webpack"></a>Install Webpack</h2><h3 id="Install-Webpack-to-Project"><a href="#Install-Webpack-to-Project" class="headerlink" title="Install Webpack to Project"></a>Install Webpack to Project</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#安裝最新的穩定版本到專案並存在package.json</span><br><span class="line">npm i webpack --save </span><br><span class="line"></span><br><span class="line"># 安裝指定版本</span><br><span class="line">npm install webpack@&lt;version&gt;</span><br><span class="line"></span><br><span class="line"># 安裝最新的體驗版本</span><br><span class="line">npm install webpack@beta</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Install-Webpack-to-Global-Enviroment"><a href="#Install-Webpack-to-Global-Enviroment" class="headerlink" title="Install Webpack to Global Enviroment"></a>Install Webpack to Global Enviroment</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g webpack</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在專案根目錄下對應的命令列裡面，會透過<code>node_modules/.bin/webpack</code>執行Webpack的可執行檔</li>
+<li>在 <code>NPM Script</code> 裡定義的工作會優先使用本專案下的Webpack，寫在package.json內容如下：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;script&quot;</span>: &#123;<span class="attr">&quot;start&quot;</span>: <span class="string">&quot;wenpack --config webpack.config.js&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Use-Webpack"><a href="#Use-Webpack" class="headerlink" title="Use Webpack"></a>Use Webpack</h3><p>透過 <strong>Webpack</strong> 建置一個採用CommonJS(use require)模組化撰寫的專案。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#index.html</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    ## 匯入webpack輸出的Javascript檔案</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./dist/bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>與index.html 互動的 show.js內容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#show.js</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.document.getElementById(<span class="string">&#x27;app&#x27;</span>).innerText = <span class="string">&#x27;Hello&#x27;</span> + content;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = show;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>Webpack 執行入口的main.js檔案內容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#main.js</span><br><span class="line"><span class="keyword">const</span> show = <span class="built_in">require</span>(<span class="string">&#x27;./show.js&#x27;</span>);</span><br><span class="line">show(<span class="string">&#x27;Webpack&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Webpack在執行建置時籲社會從專案根目錄下的webpack.config.js檔案中讀取設定，內容如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ##JavaScript 執行入口檔案</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./main.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>:&#123;</span><br><span class="line">    ## 將所有依賴的模組合併輸出到一個bundle.js檔案</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    ## 將輸出檔案都放到dist目錄下</span><br><span class="line">    <span class="attr">path</span>: path.resolve(__dirname,<span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在專案目錄下執行<code>npm start</code> 就會執行Webpack建置，在根目錄下會產生一個dist目錄，裡面含有bundle.js檔，其內容包含上面所寫的兩個模組，main.js跟show.js及內建的webpackBootstrap啟動函數。這時用瀏覽器開啟index.html就可以看到 <code>Hello, Webpack</code>。</p>
+<p>Ｗebpack是一個包裝模組化JavaScript的工具，會從main.js出發，辨別出原始程式中的模組化匯入敘述，遞迴的找出入口檔案的所有依賴，將入口和其所有依賴包裝到一個單獨的檔案中。Webpack2 開始已經內建對ES6, CommonJS, AMD模組化的敘述支援。</p>
 
     </div>
 
@@ -233,7 +244,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Frontend/" rel="tag"># Frontend</a>
+              <a href="/tags/Webpack/" rel="tag"># Webpack</a>
           </div>
 
         
