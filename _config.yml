@@ -102,4 +102,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  reop: https://github.com/mingyangshih/mingyangshih.github.io.git
+  branch: master
