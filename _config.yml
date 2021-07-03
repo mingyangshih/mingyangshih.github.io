@@ -107,7 +107,7 @@ deploy:
 
 tag_cloud:
   textFont: 'Trebuchet MS, Helvetica'
-  textColor: '#333'
+  textColor: '#cbe9a8'
   textHeight: 35
   outlineColor: '#FFF'
   maxSpeed: 0.5 # range from [0.01 ~ 1]
