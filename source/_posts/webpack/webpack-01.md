@@ -1,6 +1,6 @@
 ---
 # 部落格文章的變數
-title: Webpack Note
+title: Webpack Note 01
 date: 2021-06-30
 tags: 
   - Webpack
