@@ -103,3 +103,12 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+
+tag_cloud:
+  textFont: 'Trebuchet MS, Helvetica'
+  textColor: '#333'
+  textHeight: 25
+  outlineColor: '#E2E1D1'
+  maxSpeed: 0.5 # range from [0.01 ~ 1]
+  pauseOnSelected: false # true means pause the cloud tag movement when highlight a tag
