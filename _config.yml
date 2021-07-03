@@ -108,7 +108,7 @@ deploy:
 tag_cloud:
   textFont: 'Trebuchet MS, Helvetica'
   textColor: '#cbe9a8'
-  textHeight: 25
+  textHeight: 16
   outlineColor: '#FFF'
-  maxSpeed: 0.5 # range from [0.01 ~ 1]
+  maxSpeed: 0.2 # range from [0.01 ~ 1]
   pauseOnSelected: false # true means pause the cloud tag movement when highlight a tag
