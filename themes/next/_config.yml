@@ -953,7 +953,7 @@ images: images
 # hexo-tag-cloud
 tag_cloud:
   textFont: Trebuchet MS, Helvetica
-  textColor: '#333'
-  textHeight: 25
+  textColor: '#fff'
+  textHeight: 30
   outlineColor: '#E2E1D1'
   maxSpeed: 0.1
