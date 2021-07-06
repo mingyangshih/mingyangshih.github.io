@@ -13,9 +13,9 @@ tags:
 
 ## Blob 儲存體提供三種類型資源：
 
-* 儲存體帳戶 BlobServiceClient
-* 儲存體帳戶中的容器 ContainerClient
-* 容器中的 Blob BlobClient 
+* 儲存體帳戶 BlobServiceClient : 此類別可讓您操作 Azure 儲存體資源和 Blob 容器。
+* 儲存體帳戶中的容器 ContainerClient : 此類別可讓您操作 Azure 儲存體容器及其 Blob。
+* 容器中的 Blob BlobClient : 類別可讓您操作 Azure 儲存體 Blob。
 
 ## 建立 CORS 規則
 您必須先設定帳戶以啟用跨原始資源共用 (或簡稱為 CORS)，Web 應用程式才可從用戶端存取 Blob 儲存體。
@@ -42,11 +42,31 @@ tags:
 // 引用 @azure/storage-blob套件
 const { BlobServiceClient } = require("@azure/storage-blob");
 // Blob service SAS URL (要先去Azure services 設定)
-const blobSasUrl = "https://lyletest.blob.core.windows.net/?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-10-30T13:47:50Z&st=2021-07-05T05:47:50Z&spr=https&sig=wWqlPt7BA6uYAdEmsv05DbAlyhV7qJUwmTPLPx14NSU%3D";
+const blobSasUrl = "https://{{Azure_storage_account}}.blob.core.windows.net/?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-10-30T13:47:50Z&st=2021-07-05T05:47:50Z&spr=https&sig=wWqlPt7BA6uYAdEmsv05DbAlyhV7qJUwmTPLPx14NSU%3D";
 // Create a new BlobServiceClient
 const blobServiceClient = new BlobServiceClient(blobSasUrl);
 // Container Name in your BlobServiceClient
-const containerName = '0375fdf7b1ce594d'
+const containerName = '0375fdf7b1ce594d'  // Azure Storage Accout 內的container name
 const containerClient = blobServiceClient.getContainerClient(containerName);
-const blobClient = containerClient.getBlobClient('2020-07-01--17-34-44/2020-07-01--17-34-44--0/qcamera.m3u8');
+const blobClient = containerClient.getBlobClient('2020-07-01--17-34-44/2020-07-01--17-34-44--0/qcamera.m3u8'); // blob 資料存放路徑
+
+export async function downLoad() {
+  const downloadBlockBlobResponse = await blobClient.download();
+  return blobToString(await downloadBlockBlobResponse.blobBody);
+}
+
+function blobToString(blob) {
+  const fileReader = new FileReader();
+  return new Promise((resolve, reject) => {
+    fileReader.onloadend = (ev) => {
+      resolve(ev.target.result);
+    };
+    fileReader.onerror = reject;
+    fileReader.readAsDataURL(blob);
+  });
+}
 ```
+
+### 參考資料
+https://docs.microsoft.com/zh-tw/azure/storage/blobs/quickstart-blobs-javascript-browser
+https://nxt.engineering/en/blog/sas_token/
