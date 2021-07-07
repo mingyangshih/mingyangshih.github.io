@@ -24,7 +24,7 @@ tags:
 
 在瀏覽器中執行的程式碼會使用共用存取簽章 (SAS) 來授權 Azure Blob 儲存體要求。 藉由使用 SAS，用戶端不需要帳戶存取金鑰或連接字串，即可為儲存體資源的存取授權。 如需 SAS 的詳細資訊，請參閱使用共用存取簽章 (SAS)。
 
-### 請遵循下列步驟來取得 Blob 服務 SAS URL：
+### 請遵循下列步驟來取得 Blob 服務 SAS(Shared access signatures) URL：
 
 在 Azure 入口網站中，選取您的儲存體帳戶。
 * 瀏覽至 [設定] 區段，然後選取 [共用存取簽章]。
@@ -42,8 +42,16 @@ tags:
 // 引用 @azure/storage-blob套件
 const { BlobServiceClient } = require("@azure/storage-blob");
 // Blob service SAS URL (要先去Azure services 設定)
+// srt = SignedResourceTypes (對應到 Azure Portal Allowed Resource Type : Service, Container, Object)
+// ss = SignedServices(對應到 Azure Portal Allowed Services : Blob, File, Quere, Table)
+// sp = SignedPermission(對應到 Azure Portal Allowed Permissions : Read, Write, Delete ...)
+// sig = Base64 encoded signature generated using by the HMAC-SHA256 algorithm.
 const blobSasUrl = "https://{{Azure_storage_account}}.blob.core.windows.net/?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-10-30T13:47:50Z&st=2021-07-05T05:47:50Z&spr=https&sig=wWqlPt7BA6uYAdEmsv05DbAlyhV7qJUwmTPLPx14NSU%3D";
-// Create a new BlobServiceClient
+// 設定完這些參數需要透過Store Account Key 去把 signature 簽出來
+
+// Azure Storage supports several ways to authenticate. 
+// In order to interact with the Azure Blob Storage service you'll need to create an instance of a Storage client 
+// - BlobServiceClient, ContainerClient, or BlobClient
 const blobServiceClient = new BlobServiceClient(blobSasUrl);
 // Container Name in your BlobServiceClient
 const containerName = '0375fdf7b1ce594d'  // Azure Storage Accout 內的container name
@@ -66,7 +74,32 @@ function blobToString(blob) {
   });
 }
 ```
+## Node.js 用 generateAccountSASQueryParameters 產 SAS token 
+
+
+## Node.js 用 generateBlobSASQueryParameters 產 SAS token
+
+
+## python generate_container_sas 產 SAS token
+
+
+
 
 ### 參考資料
+* 快速入門：在瀏覽器中使用 JavaScript v12 SDK 來管理 Blob
 https://docs.microsoft.com/zh-tw/azure/storage/blobs/quickstart-blobs-javascript-browser
+
+* How to Use SAS Tokens with Azure Blob Storage
 https://nxt.engineering/en/blog/sas_token/
+
+* Azure document for @azure/storage-blob
+https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.html#authenticate-the-client
+
+* Create an account SAS
+https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas
+
+* SAS 格式參考
+https://docs.microsoft.com/en-us/javascript/api/@azure/storage-blob/accountsassignaturevalues?view=azure-node-latest#permissions
+
+* Generate service level SAS for a container
+https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/globals.html#generateblobsasqueryparameters

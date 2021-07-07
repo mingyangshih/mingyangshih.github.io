@@ -7,6 +7,7 @@ tags:
   - React
   - JS Framework
 ---
+React 核心觀念，state 永遠會對應到一個UI;改變state 時會trigger re-render
 
 ## 原生JS 實現簡單的按鈕組件化
 ``` js

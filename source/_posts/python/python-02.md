@@ -53,3 +53,30 @@ type(num_char) # use this to see type of this variable
 new_num_char = str(num_char)
 print("your name has" + new_num_char + "characters.")
 ```
+
+### exercise 2.1 
+write a program that adds the digits in a 2 digit number. e.g. if the input was 35, then the output should be 3 + 5 = 8
+
+``` python 
+
+two_digit_number = input("Type a two digit number: ")
+print(int(two_digit_number[0]) + int(two_digit_number[1]))
+
+```
+
+## Mathematical Operations in Python
+
+運算優先順序：PEMDAS(Parentheses, Exponents, Multiplication, Division, Addition, Subtration)
+如相同等級如，乘除相同等級，由左到右依序計算。
+
+``` python
+3 + 5
+
+7 - 4
+
+3 * 8
+
+type(6 / 3) # float because the answer is 2.0 
+
+2**2  # get a exponent number to a power
+```
