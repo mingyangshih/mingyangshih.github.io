@@ -20,30 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Linux note">
+<meta name="description" content="Understanding Data Types and How To Manipulate Strings">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Change the Python3 default Version in Ubuntu">
-<meta property="og:url" content="https://mingyangshih.github.io/2021/07/06/linux/linux01/index.html">
+<meta property="og:title" content="100 Days of Code - The Complete Python Pro Bootcamp(Day2)">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/07/05/python/python-02/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="Linux note">
+<meta property="og:description" content="Understanding Data Types and How To Manipulate Strings">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-06T00:00:00.000Z">
+<meta property="article:published_time" content="2021-07-05T00:00:00.000Z">
 <meta property="article:modified_time" content="2021-07-07T15:41:32.281Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/2021/07/06/linux/linux01/">
+<link rel="canonical" href="https://mingyangshih.github.io/2021/07/05/python/python-02/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/06/linux/linux01/","path":"2021/07/06/linux/linux01/","title":"Change the Python3 default Version in Ubuntu"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/05/python/python-02/","path":"2021/07/05/python/python-02/","title":"100 Days of Code - The Complete Python Pro Bootcamp(Day2)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Change the Python3 default Version in Ubuntu | Clayton's Coding Note</title>
+<title>100 Days of Code - The Complete Python Pro Bootcamp(Day2) | Clayton's Coding Note</title>
   
 
 
@@ -108,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -121,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-Primitive-Data-Types"><span class="nav-number">1.</span> <span class="nav-text">Python Primitive Data Types</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">1.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer"><span class="nav-number">1.2.</span> <span class="nav-text">Integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Float"><span class="nav-number">1.3.</span> <span class="nav-text">Float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean"><span class="nav-number">1.4.</span> <span class="nav-text">Boolean</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type-Error-Type-Checking-and-Type-Conversion"><span class="nav-number">2.</span> <span class="nav-text">Type Error, Type Checking and Type Conversion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#exercise-2-1"><span class="nav-number">2.1.</span> <span class="nav-text">exercise 2.1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mathematical-Operations-in-Python"><span class="nav-number">3.</span> <span class="nav-text">Mathematical Operations in Python</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -205,7 +204,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/06/linux/linux01/">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/05/python/python-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Change the Python3 default Version in Ubuntu
+          100 Days of Code - The Complete Python Pro Bootcamp(Day2)
         </h1>
 
         <div class="post-meta-container">
@@ -229,7 +228,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-06 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-06T00:00:00+00:00">2021-07-06</time>
+      <time title="Created: 2021-07-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-05T00:00:00+00:00">2021-07-05</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -244,14 +243,14 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">Linux note</div>
+            <div class="post-description">Understanding Data Types and How To Manipulate Strings</div>
         </div>
       </header>
 
@@ -259,17 +258,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>By default python on mostly ubuntu, there is python 2. We need to use python3 to run the python files with the latest version.</p>
-<p>Steps to Set Python3 as Default On ubuntu?</p>
-<ul>
-<li>Check python version on terminal - python –version</li>
-<li>Get root user privileges. On terminal type - sudo su</li>
-<li>Write down the root user password.</li>
-<li>Execute this command to switch to python 3.X. update-alternatives –install /usr/bin/python python /usr/* bin/python3 1</li>
-<li>Check python version - python –version</li>
-<li>All Done!</li>
-</ul>
+        <h2 id="Python-Primitive-Data-Types"><a href="#Python-Primitive-Data-Types" class="headerlink" title="Python Primitive Data Types"></a>Python Primitive Data Types</h2><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;Hello&#x27;</span>[<span class="number">0</span>] <span class="comment">#Can get a first character of a string</span></span><br><span class="line"><span class="comment">#This method of pulling out a particular element from a string is called sub-scripting.</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Hello&#x27;</span>[<span class="built_in">len</span>(<span class="string">&#x27;Hello&#x27;</span>)-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;123&#x27;</span> + <span class="string">&#x27;345&#x27;</span>) <span class="comment"># 123345</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><p>Number data type one of the most common that you’ll see is called an integer.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> + <span class="number">345</span> <span class="comment"># 468</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">123_456_789</span>) <span class="comment"># we can replace big numbers commas simply with underscores </span></span><br><span class="line"><span class="comment"># and it will be interpreted by the computer as if you had written this. </span></span><br><span class="line"><span class="comment"># So the computer actually removes those underscores and ignores it.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h3><p>Decimal number they are called a float and this is short for a floating-point number.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p>Only two possible value true or false</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Type-Error-Type-Checking-and-Type-Conversion"><a href="#Type-Error-Type-Checking-and-Type-Conversion" class="headerlink" title="Type Error, Type Checking and Type Conversion"></a>Type Error, Type Checking and Type Conversion</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">num_char = <span class="built_in">len</span>(<span class="built_in">input</span>(<span class="string">&quot;What&#x27;s your name?&quot;</span>));</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your name has&quot;</span> + num_char + <span class="string">&quot;characters.&quot;</span>); <span class="comment"># TypeError: can only concatenate str (not &quot;int&quot;) to str</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">type</span>(num_char) <span class="comment"># use this to see type of this variable</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># type conversion change data from a int to string</span></span><br><span class="line">new_num_char = <span class="built_in">str</span>(num_char)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your name has&quot;</span> + new_num_char + <span class="string">&quot;characters.&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="exercise-2-1"><a href="#exercise-2-1" class="headerlink" title="exercise 2.1"></a>exercise 2.1</h3><p>write a program that adds the digits in a 2 digit number. e.g. if the input was 35, then the output should be 3 + 5 = 8</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">two_digit_number = <span class="built_in">input</span>(<span class="string">&quot;Type a two digit number: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(two_digit_number[<span class="number">0</span>]) + <span class="built_in">int</span>(two_digit_number[<span class="number">1</span>]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Mathematical-Operations-in-Python"><a href="#Mathematical-Operations-in-Python" class="headerlink" title="Mathematical Operations in Python"></a>Mathematical Operations in Python</h2><p>運算優先順序：PEMDAS(Parentheses, Exponents, Multiplication, Division, Addition, Subtration)<br>如相同等級如，乘除相同等級，由左到右依序計算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> + <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="number">7</span> - <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span> * <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">type</span>(<span class="number">6</span> / <span class="number">3</span>) <span class="comment"># float because the answer is 2.0 </span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>**<span class="number">2</span>  <span class="comment"># get a exponent number to a power</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -279,19 +285,20 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
-              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/05/Azure%20Blob/AzureBlob/" rel="prev" title="JavaScript v12 SDK Manage Blob">
-                  <i class="fa fa-chevron-left"></i> JavaScript v12 SDK Manage Blob
+                <a href="/2021/07/03/python/python-01/" rel="prev" title="100 Days of Code - The Complete Python Pro Bootcamp(Day1)">
+                  <i class="fa fa-chevron-left"></i> 100 Days of Code - The Complete Python Pro Bootcamp(Day1)
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/07/05/Azure%20Blob/AzureBlob/" rel="next" title="JavaScript v12 SDK Manage Blob">
+                  JavaScript v12 SDK Manage Blob <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
