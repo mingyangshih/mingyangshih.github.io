@@ -41,6 +41,9 @@ bmi = float(weight) / float(height) / float(height)
 
 print(bmi)
 
+# 小數點後只有一位但要秀出兩位
+"{:.2f}".format(12.5)
+
 ```
 
 ### Boolean
