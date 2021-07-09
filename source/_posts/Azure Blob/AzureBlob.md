@@ -33,10 +33,8 @@ tags:
 * 按一下 [Blob 服務 SAS URL] 欄位最右側的 [複製到剪貼簿] 按鈕。
 * 將複製的 URL 儲存在某處，以便在後續的步驟中使用。
 
-## 新增 Azure Blob 儲存體用戶端程式庫
-[Azure SDK for Python](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient?view=azure-python)
+## Get blob from store account, transfer to data URL
 
-[Azure SDK for JavaScript](https://azure.github.io/azure-sdk-for-js/index.html)
 
 ``` js
 // 引用 @azure/storage-blob套件
@@ -62,7 +60,7 @@ export async function downLoad() {
   const downloadBlockBlobResponse = await blobClient.download();
   return blobToString(await downloadBlockBlobResponse.blobBody);
 }
-
+// blob 資料轉成 data URL
 function blobToString(blob) {
   const fileReader = new FileReader();
   return new Promise((resolve, reject) => {
@@ -74,32 +72,74 @@ function blobToString(blob) {
   });
 }
 ```
-## Node.js 用 generateAccountSASQueryParameters 產 SAS token 
+
+成功將blob資料轉換成 Data URL 後，因為不可能每次產SAS都進後台去產，所以研究了如何自行產出SAS。
+在公司專案中，不同用戶的資料會存在同一個 Storage account 但不同的 containers ，因此本篇只針對如何產出某個特定 container 的SAS。 
 
 
 ## Node.js 用 generateBlobSASQueryParameters 產 SAS token
 
+``` js
+// generateBlobSASQueryParameters Generate service level SAS for a container
+const AzureStorageBlob = require('@azure/storage-blob')
+// Enter your storage account name and shared key
+const account = `${store account name}`;
+const accountKey = `${store account shared key}`;
+const sharedKeyCredential = new AzureStorageBlob.StorageSharedKeyCredential(account, accountKey)
+const containerName = `${store account 下的 container name}`
+// SAS 的有效期限
+const last_day_of_this_year = new Date(new Date().getFullYear(), 11, 31)
+const startOn = new Date()
+// 產出針對某個container 的SAS，下方generateBlobSASQueryParameters第一個object 參數的內容跟產出ss, srt, sp ... 有關下方參考資料有提供
+const containerSAS = AzureStorageBlob.generateBlobSASQueryParameters({
+  containerName, // Required
+  permissions: AzureStorageBlob.ContainerSASPermissions.parse("r"), // Required
+  startsOn:startOn,
+  expiresOn:last_day_of_this_year,
+  protocol: AzureStorageBlob.SASProtocol.Https, // Optional
+},
+sharedKeyCredential
+).toString();
+```
 
 ## python generate_container_sas 產 SAS token
 
-
-
+``` python
+# generate container sas token 
+from azure.storage.blob import BlobSasPermissions
+from azure.storage.blob import generate_container_sas
+from datetime import timedelta, datetime
+import os
+# generate SAS token for a container
+@app.get("/getSAS")
+def getSAS(request: Request, q: Optional[str] = None):
+    sas_account_name = os.getenv('ACCOUNT_NAME')
+    sas_account_key = os.getenv('ACCOUNT_KEY')
+    container_name = f"{store container name}"
+    sas_container = generate_container_sas(
+        sas_account_name,  # type: str
+        container_name,  # type: str
+        account_key=sas_account_key,  # type: Optional[str]
+        permission=BlobSasPermissions(read=True),
+        expiry=datetime.utcnow() + timedelta(hours=2)
+    )
+    print(q)
+    return JSONResponse(content={"sastoken": sas_container})
+```
 
 ### 參考資料
-* 快速入門：在瀏覽器中使用 JavaScript v12 SDK 來管理 Blob
-https://docs.microsoft.com/zh-tw/azure/storage/blobs/quickstart-blobs-javascript-browser
+* [快速入門：在瀏覽器中使用 JavaScript v12 SDK 來管理 Blob](https://docs.microsoft.com/zh-tw/azure/storage/blobs/quickstart-blobs-javascript-browser)
 
-* How to Use SAS Tokens with Azure Blob Storage
-https://nxt.engineering/en/blog/sas_token/
+* [How to Use SAS Tokens with Azure Blob Storage](https://nxt.engineering/en/blog/sas_token/)
 
-* Azure document for @azure/storage-blob
-https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.html#authenticate-the-client
+* [Azure document for @azure/storage-blob](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.)html#authenticate-the-client
 
-* Create an account SAS
-https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas
+* [Create an account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas)
 
-* SAS 格式參考
-https://docs.microsoft.com/en-us/javascript/api/@azure/storage-blob/accountsassignaturevalues?view=azure-node-latest#permissions
+* [SAS 格式參考](https://docs.microsoft.com/en-us/javascript/api/@azure/storage-blob/accountsassignaturevalues?view=azure-node-latest#permissions)
 
-* Generate service level SAS for a container
-https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/globals.html#generateblobsasqueryparameters
+* [Generate service level SAS for a container](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/globals.html#generateblobsasqueryparameters)
+
+* [Azure SDK for Python](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient?view=azure-python)
+
+* [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.html)

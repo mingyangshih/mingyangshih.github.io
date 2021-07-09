@@ -1,7 +1,7 @@
 ---
 title: React小書 Note 01
 date: 2021-07-03
-description: React小書 Learning Note (前端組件化一)
+description: React小書 Learning Note (前端組件化一) 從一個簡單的例子講起
 categories: Frontend
 tags: 
   - React
