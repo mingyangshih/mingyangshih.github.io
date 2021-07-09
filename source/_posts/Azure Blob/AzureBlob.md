@@ -110,7 +110,7 @@ from azure.storage.blob import BlobSasPermissions
 from azure.storage.blob import generate_container_sas
 from datetime import timedelta, datetime
 import os
-# generate SAS token for a container
+# generate SAS token for a container (fastapi)
 @app.get("/getSAS")
 def getSAS(request: Request, q: Optional[str] = None):
     sas_account_name = os.getenv('ACCOUNT_NAME')
@@ -123,7 +123,6 @@ def getSAS(request: Request, q: Optional[str] = None):
         permission=BlobSasPermissions(read=True),
         expiry=datetime.utcnow() + timedelta(hours=2)
     )
-    print(q)
     return JSONResponse(content={"sastoken": sas_container})
 ```
 
