@@ -5,13 +5,19 @@ description: React小書 Learning Note (前端組件化一) 從一個簡單的�
 categories: Frontend
 tags: 
   - React
-  - JS Framework
 ---
 React 核心觀念，state 永遠會對應到一個UI;改變state 時會trigger re-render
 
 ## 原生JS 實現簡單的按鈕組件化
 ``` js
-// ::String => ::Document
+const wrapper = document.querySelector('.wrapper')
+const likeButton1 = new LikeButton()
+wrapper.appendChild(likeButton1.render())
+
+const likeButton2 = new LikeButton()
+wrapper.appendChild(likeButton2.render())
+
+// ::String => ::Document Object Model
 const createDOMFromString = (domString) => {
   const div = document.createElement('div')
   div.innerHTML = domString
@@ -42,3 +48,6 @@ class LikeButton {
 }
 
 ```
+### 參考資料
+
+https://hyf.js.org/react-naive-book
