@@ -28,28 +28,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="React小書 Learning Note (前端組件化一) 從一個簡單的例子講起">
+<meta name="description" content="React小書 Learning Note (前端組件化二) 優化DOM操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React小書 Note 01">
-<meta property="og:url" content="https://mingyangshih.github.io/2021/07/03/react/React-01/index.html">
+<meta property="og:title" content="React小書 Note 02">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/07/04/react/React-02/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="React小書 Learning Note (前端組件化一) 從一個簡單的例子講起">
+<meta property="og:description" content="React小書 Learning Note (前端組件化二) 優化DOM操作">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-03T00:00:00.000Z">
+<meta property="article:published_time" content="2021-07-04T00:00:00.000Z">
 <meta property="article:modified_time" content="2021-07-11T15:43:07.183Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/2021/07/03/react/React-01/">
+<link rel="canonical" href="https://mingyangshih.github.io/2021/07/04/react/React-02/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/03/react/React-01/","path":"2021/07/03/react/React-01/","title":"React小書 Note 01"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/04/react/React-02/","path":"2021/07/04/react/React-02/","title":"React小書 Note 02"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>React小書 Note 01 | Clayton's Coding Note</title>
+<title>React小書 Note 02 | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%94%9FJS-%E5%AF%A6%E7%8F%BE%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8C%89%E9%88%95%E7%B5%84%E4%BB%B6%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">原生JS 實現簡單的按鈕組件化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">1.1.</span> <span class="nav-text">參考資料</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BC%83%E5%A5%BD%E7%9A%84%E5%AF%A6%E8%B8%90%E6%96%B9%E5%BC%8F-%E7%8B%80%E6%85%8B%E6%94%B9%E8%AE%8A-gt-%E6%A7%8B%E5%BB%BA%E6%96%B0%E7%9A%84DOM-%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E9%A0%81%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +215,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/03/react/React-01/">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/04/react/React-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React小書 Note 01
+          React小書 Note 02
         </h1>
 
         <div class="post-meta-container">
@@ -239,7 +239,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-03T00:00:00+00:00">2021-07-03</time>
+      <time title="Created: 2021-07-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-04T00:00:00+00:00">2021-07-04</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
   
 </div>
 
-            <div class="post-description">React小書 Learning Note (前端組件化一) 從一個簡單的例子講起</div>
+            <div class="post-description">React小書 Learning Note (前端組件化二) 優化DOM操作</div>
         </div>
       </header>
 
@@ -269,9 +269,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>React 核心觀念，state 永遠會對應到一個UI;改變state 時會trigger re-render</p>
-<h2 id="原生JS-實現簡單的按鈕組件化"><a href="#原生JS-實現簡單的按鈕組件化" class="headerlink" title="原生JS 實現簡單的按鈕組件化"></a>原生JS 實現簡單的按鈕組件化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wrapper = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.wrapper&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> likeButton1 = <span class="keyword">new</span> LikeButton()</span><br><span class="line">wrapper.appendChild(likeButton1.render())</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> likeButton2 = <span class="keyword">new</span> LikeButton()</span><br><span class="line">wrapper.appendChild(likeButton2.render())</span><br><span class="line"></span><br><span class="line"><span class="comment">// ::String =&gt; ::Document Object Model</span></span><br><span class="line"><span class="keyword">const</span> createDOMFromString = <span class="function">(<span class="params">domString</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">  div.innerHTML = domString</span><br><span class="line">  <span class="keyword">return</span> div</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeButton</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.state = &#123; <span class="attr">isLiked</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  changeLikeText () &#123;</span><br><span class="line">    <span class="keyword">const</span> likeText = <span class="built_in">this</span>.el.querySelector(<span class="string">&#x27;.like-text&#x27;</span>)</span><br><span class="line">    <span class="built_in">this</span>.state.isLiked = !<span class="built_in">this</span>.state.isLiked</span><br><span class="line">    likeText.innerHTML = <span class="built_in">this</span>.state.isLiked ? <span class="string">&#x27;取消&#x27;</span> : <span class="string">&#x27;点赞&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="built_in">this</span>.el = createDOMFromString(<span class="string">`</span></span><br><span class="line"><span class="string">      &lt;button class=&#x27;like-button&#x27;&gt;</span></span><br><span class="line"><span class="string">        &lt;span class=&#x27;like-text&#x27;&gt;点赞&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;👍&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    `</span>)</span><br><span class="line">    <span class="built_in">this</span>.el.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.changeLikeText.bind(<span class="built_in">this</span>), <span class="literal">false</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a target="_blank" rel="noopener" href="https://hyf.js.org/react-naive-book">https://hyf.js.org/react-naive-book</a></p>
+        <p><font color="yellow" >React 核心觀念，改變state 時會trigger re-render </font></p>
+<p>在上一篇的changeLikeText函數中包括了DOM的操作；通常數據狀態改變會導致我們去更新頁面的內容，所以當組建依賴的數據狀態變多時，組建內基本上都是DOM的操作。</p>
+<p>代碼中混雜著DOM的操作不是太好的實踐，因為手動管理數據和DOM 之間的關係會導致代碼可維護性變差、容易出錯。</p>
+<h3 id="較好的實踐方式-狀態改變-gt-構建新的DOM-元素更新頁面"><a href="#較好的實踐方式-狀態改變-gt-構建新的DOM-元素更新頁面" class="headerlink" title="較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)"></a>較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)</h3><p>這個方法的好處是可以在render方法裡面使用最新的this.state來構造不同HTML結構的字符串，並且通過這個字符串構造不同的DOM元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeButton</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.state = &#123; <span class="attr">isLiked</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setState (state) &#123;</span><br><span class="line">    <span class="built_in">this</span>.state = state</span><br><span class="line">    <span class="built_in">this</span>.el = <span class="built_in">this</span>.render()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  changeLikeText () &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">isLiked</span>: !<span class="built_in">this</span>.state.isLiked</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="built_in">this</span>.el = createDOMFromString(<span class="string">`</span></span><br><span class="line"><span class="string">      &lt;button class=&#x27;like-btn&#x27;&gt;</span></span><br><span class="line"><span class="string">        &lt;span class=&#x27;like-text&#x27;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.state.isLiked ? <span class="string">&#x27;取消&#x27;</span> : <span class="string">&#x27;点赞&#x27;</span>&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;👍&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    `</span>)</span><br><span class="line">    <span class="built_in">this</span>.el.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.changeLikeText.bind(<span class="built_in">this</span>), <span class="literal">false</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>render函數里面的HTML字符串會根據 <code>this.state</code> 不同而不同。</li>
+<li>新增一個 <code>setState</code> 函數，這個函數接受一個物件作為參數；它會設置實例的 <code>state</code>，然後重新調用一下 <code>render</code> 方法。</li>
+<li>當用戶點擊按鈕的時候，<code>changeLikeText</code> 會構建新的 <code>state</code> 對象，這個新的<code>state</code>，傳入 <code>setState</code> 函數當中</li>
+</ul>
+<p>因此整個事件觸發的流程就會變成，點擊觸發後 <code>changeLikeText</code> 都會調用改變組件狀態然後調用 <code>setState</code>，<code>setState</code> 會調用 <code>render</code>，<code>render</code> 方法會根據 <code>state</code> 的不同重新構建不同的DOM元素。<font color="#f00">也就是說<strong>只要調用setState，組件就會重新渲染。</strong></font></p>
 
     </div>
 
@@ -288,13 +296,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/06/30/webpack/webpack-01/" rel="prev" title="Webpack Note 01">
-                  <i class="fa fa-chevron-left"></i> Webpack Note 01
+                <a href="/2021/07/03/python/python-01/" rel="prev" title="100 Days of Code - The Complete Python Pro Bootcamp(Day1)">
+                  <i class="fa fa-chevron-left"></i> 100 Days of Code - The Complete Python Pro Bootcamp(Day1)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/03/python/python-01/" rel="next" title="100 Days of Code - The Complete Python Pro Bootcamp(Day1)">
-                  100 Days of Code - The Complete Python Pro Bootcamp(Day1) <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/05/python/python-02/" rel="next" title="100 Days of Code - The Complete Python Pro Bootcamp(Day2)">
+                  100 Days of Code - The Complete Python Pro Bootcamp(Day2) <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
