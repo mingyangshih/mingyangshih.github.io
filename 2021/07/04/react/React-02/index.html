@@ -36,7 +36,7 @@
 <meta property="og:description" content="React小書 Learning Note (前端組件化二) 優化DOM操作">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-04T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-11T15:43:07.183Z">
+<meta property="article:modified_time" content="2021-07-13T01:59:15.499Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BC%83%E5%A5%BD%E7%9A%84%E5%AF%A6%E8%B8%90%E6%96%B9%E5%BC%8F-%E7%8B%80%E6%85%8B%E6%94%B9%E8%AE%8A-gt-%E6%A7%8B%E5%BB%BA%E6%96%B0%E7%9A%84DOM-%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E9%A0%81%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BC%83%E5%A5%BD%E7%9A%84%E5%AF%A6%E8%B8%90%E6%96%B9%E5%BC%8F-%E7%8B%80%E6%85%8B%E6%94%B9%E8%AE%8A-gt-%E6%A7%8B%E5%BB%BA%E6%96%B0%E7%9A%84DOM-%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E9%A0%81%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%8F%92%E5%85%A5%E6%96%B0%E7%9A%84-DOM-%E5%85%83%E7%B4%A0"><span class="nav-number">2.</span> <span class="nav-text">重新插入新的 DOM 元素</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,7 +145,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -184,7 +184,7 @@
         <h3 class="widget-title">Tags Cloud</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frontend/" rel="tag">Frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">3</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frontend/" rel="tag">Frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">3</span></li></ul>
             </canvas>
         </div>
     </div>
@@ -246,7 +246,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-11 15:43:07" itemprop="dateModified" datetime="2021-07-11T15:43:07+00:00">2021-07-11</time>
+        <time title="Modified: 2021-07-13 01:59:15" itemprop="dateModified" datetime="2021-07-13T01:59:15+00:00">2021-07-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p><font color="yellow" >React 核心觀念，改變state 時會trigger re-render </font></p>
-<p>在上一篇的changeLikeText函數中包括了DOM的操作；通常數據狀態改變會導致我們去更新頁面的內容，所以當組建依賴的數據狀態變多時，組建內基本上都是DOM的操作。</p>
+<p>在上一篇的changeLikeText函數中包括了DOM的操作；數據狀態改變會導致我們去更新頁面的內容，所以當component依賴的數據狀態變多時，component內基本上都是DOM的操作。</p>
 <p>代碼中混雜著DOM的操作不是太好的實踐，因為手動管理數據和DOM 之間的關係會導致代碼可維護性變差、容易出錯。</p>
 <h3 id="較好的實踐方式-狀態改變-gt-構建新的DOM-元素更新頁面"><a href="#較好的實踐方式-狀態改變-gt-構建新的DOM-元素更新頁面" class="headerlink" title="較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)"></a>較好的實踐方式 (狀態改變-&gt; 構建新的DOM 元素更新頁面)</h3><p>這個方法的好處是可以在render方法裡面使用最新的this.state來構造不同HTML結構的字符串，並且通過這個字符串構造不同的DOM元素。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeButton</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.state = &#123; <span class="attr">isLiked</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setState (state) &#123;</span><br><span class="line">    <span class="built_in">this</span>.state = state</span><br><span class="line">    <span class="built_in">this</span>.el = <span class="built_in">this</span>.render()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  changeLikeText () &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">isLiked</span>: !<span class="built_in">this</span>.state.isLiked</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="built_in">this</span>.el = createDOMFromString(<span class="string">`</span></span><br><span class="line"><span class="string">      &lt;button class=&#x27;like-btn&#x27;&gt;</span></span><br><span class="line"><span class="string">        &lt;span class=&#x27;like-text&#x27;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.state.isLiked ? <span class="string">&#x27;取消&#x27;</span> : <span class="string">&#x27;点赞&#x27;</span>&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;👍&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    `</span>)</span><br><span class="line">    <span class="built_in">this</span>.el.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.changeLikeText.bind(<span class="built_in">this</span>), <span class="literal">false</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -280,6 +280,10 @@
 <li>當用戶點擊按鈕的時候，<code>changeLikeText</code> 會構建新的 <code>state</code> 對象，這個新的<code>state</code>，傳入 <code>setState</code> 函數當中</li>
 </ul>
 <p>因此整個事件觸發的流程就會變成，點擊觸發後 <code>changeLikeText</code> 都會調用改變組件狀態然後調用 <code>setState</code>，<code>setState</code> 會調用 <code>render</code>，<code>render</code> 方法會根據 <code>state</code> 的不同重新構建不同的DOM元素。<font color="#f00">也就是說<strong>只要調用setState，組件就會重新渲染。</strong></font></p>
+<h3 id="重新插入新的-DOM-元素"><a href="#重新插入新的-DOM-元素" class="headerlink" title="重新插入新的 DOM 元素"></a>重新插入新的 DOM 元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setState (state) &#123;</span><br><span class="line">  <span class="keyword">const</span> oldEl = <span class="built_in">this</span>.el</span><br><span class="line">  <span class="built_in">this</span>.state = state</span><br><span class="line">  <span class="built_in">this</span>.el = <span class="built_in">this</span>.render()</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.onStateChange) <span class="built_in">this</span>.onStateChange(oldEl, <span class="built_in">this</span>.el)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用這個component時</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> likeButton = <span class="keyword">new</span> LikeButton()</span><br><span class="line">wrapper.appendChild(likeButton.render()) <span class="comment">// 第一次插入 DOM 元素</span></span><br><span class="line">likeButton.onStateChange = <span class="function">(<span class="params">oldEl, newEl</span>) =&gt;</span> &#123;</span><br><span class="line">  wrapper.insertBefore(newEl, oldEl) <span class="comment">// 插入新的元素</span></span><br><span class="line">  wrapper.removeChild(oldEl) <span class="comment">// 删除旧的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>實例化以後新增 <code>onStateChange</code> 這個方法，可以自定義 <code>onStateChange</code> 的功能。這裡做的事是，每當 <code>setState</code> 中構造完新的DOM元素以後，就會通過 <code>onStateChange</code> 告知外部<strong>插入新的DOM元素，然後刪除舊的元素，頁面就更新了</strong>。<br>雖然這種方法，每次更新都會重新新增或刪除DOM元素，耗費效能，但可以透過 Virtual-DOM 解決這個問題。</p>
 
     </div>
 

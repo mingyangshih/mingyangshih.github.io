@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HFE0Z4C4WF');
+</script>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="React小書 Learning Note 前端組件化（三）：抽像出公共組件類">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React小書 Note 03">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/07/12/react/React-03/index.html">
+<meta property="og:site_name" content="Clayton&#39;s Coding Note">
+<meta property="og:description" content="React小書 Learning Note 前端組件化（三）：抽像出公共組件類">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-12T20:36:04.000Z">
+<meta property="article:modified_time" content="2021-07-13T01:59:15.499Z">
+<meta property="article:author" content="Clayton Shih">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mingyangshih.github.io/2021/07/12/react/React-03/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/12/react/React-03/","path":"2021/07/12/react/React-03/","title":"React小書 Note 03"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>React小書 Note 03 | Clayton's Coding Note</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Clayton's Coding Note</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%86%E5%87%BA%E6%8A%BD%E8%B1%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">拆出抽象模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%82%B3%E5%85%A5%E8%87%AA%E5%AE%9A%E7%BE%A9%E7%9A%84%E8%B3%87%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">傳入自定義的資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E5%89%8D%E7%AB%AF%E7%B5%84%E5%BB%BA%E8%A9%B1%E7%B8%BD%E7%B5%90"><span class="nav-number">3.</span> <span class="nav-text">實作前端組建話總結</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Clayton Shih</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:jsps595214@gmail.com" title="E-Mail → mailto:jsps595214@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+  
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tags Cloud</h3>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frontend/" rel="tag">Frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">3</span></li></ul>
+            </canvas>
+        </div>
+    </div>
+  
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/12/react/React-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Clayton Shih">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clayton's Coding Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React小書 Note 03
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-12 20:36:04" itemprop="dateCreated datePublished" datetime="2021-07-12T20:36:04+00:00">2021-07-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-13 01:59:15" itemprop="dateModified" datetime="2021-07-13T01:59:15+00:00">2021-07-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Frontend/" itemprop="url" rel="index"><span itemprop="name">Frontend</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">React小書 Learning Note 前端組件化（三）：抽像出公共組件類</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><font color="yellow" >React 核心觀念，改變state 時會trigger re-render </font></p>
+<h3 id="拆出抽象模式"><a href="#拆出抽象模式" class="headerlink" title="拆出抽象模式"></a>拆出抽象模式</h3><p>為了讓程式更靈活，可以套用在不同component，把這種模式抽像出來，產生一個 Component Class：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  setState (state) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldEl = <span class="built_in">this</span>.el</span><br><span class="line">    <span class="built_in">this</span>.state = state</span><br><span class="line">    <span class="built_in">this</span>.el = <span class="built_in">this</span>._renderDOM()</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.onStateChange) <span class="built_in">this</span>.onStateChange(oldEl, <span class="built_in">this</span>.el)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _renderDOM () &#123;</span><br><span class="line">    <span class="built_in">this</span>.el = createDOMFromString(<span class="built_in">this</span>.render())</span><br><span class="line">    <span class="comment">// 物件實體有onClick這個方法時，註冊click事件到這個element上</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.onClick) &#123;</span><br><span class="line">      <span class="built_in">this</span>.el.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.onClick.bind(<span class="built_in">this</span>), <span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這個是一個Father Class Component，所有的組件都可以繼承這個父類來建造。它定義的兩個方法，一個是我們已經很熟悉的 <code>setState</code> ；一個是私有方法 <code>_renderDOM</code> 。<code>_renderDOM</code> 方法會調用 <code>this.render</code> 來構建DOM元素並且監聽 <code>onClick</code> 事件。所以，組件子類繼承的時候只需要實作返回HTML字符串的<code>render</code> 方法及 <code>onClick</code> 方法即可 。</p>
+<p>還有一個額外的 <code>mount</code> 的方法，其實就是把組件的DOM元素插入頁面，並且在 <code>setState</code> 的時候更新頁面：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mount = <span class="function">(<span class="params">component, wrapper</span>) =&gt;</span> &#123;</span><br><span class="line">  wrapper.appendChild(component._renderDOM())</span><br><span class="line">  component.onStateChange = <span class="function">(<span class="params">oldEl, newEl</span>) =&gt;</span> &#123;</span><br><span class="line">    wrapper.insertBefore(newEl, oldEl)</span><br><span class="line">    wrapper.removeChild(oldEl)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 繼承Father Class Component 的 component</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeButton</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.state = &#123; <span class="attr">isLiked</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onClick () &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">isLiked</span>: !<span class="built_in">this</span>.state.isLiked</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;button class=&#x27;like-btn&#x27;&gt;</span></span><br><span class="line"><span class="string">        &lt;span class=&#x27;like-text&#x27;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.state.isLiked ? <span class="string">&#x27;取消&#x27;</span> : <span class="string">&#x27;点赞&#x27;</span>&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;👍&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mount(<span class="keyword">new</span> LikeButton(), wrapper)</span><br></pre></td></tr></table></figure>
+<h3 id="傳入自定義的資料"><a href="#傳入自定義的資料" class="headerlink" title="傳入自定義的資料"></a>傳入自定義的資料</h3><p>在實際開發時，時常需要給Component傳入一些自定義的資料，如：樣式、函式…等。<br>可以給Component Class和它的 Children Class 都傳入一個參數props，作為Component的配置參數。修改Component的constructor為：</p>
+<p>Father Component</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params">props = &#123;&#125;</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.props = props</span><br><span class="line">  &#125;</span><br><span class="line">  setState (state) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldEl = <span class="built_in">this</span>.el</span><br><span class="line">    <span class="built_in">this</span>.state = state</span><br><span class="line">    <span class="built_in">this</span>.el = <span class="built_in">this</span>._renderDOM()</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.onStateChange) <span class="built_in">this</span>.onStateChange(oldEl, <span class="built_in">this</span>.el)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _renderDOM () &#123;</span><br><span class="line">    <span class="built_in">this</span>.el = createDOMFromString(<span class="built_in">this</span>.render())</span><br><span class="line">    <span class="comment">// 物件實體有onClick這個方法時，註冊click事件到這個element上</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.onClick) &#123;</span><br><span class="line">      <span class="built_in">this</span>.el.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.onClick.bind(<span class="built_in">this</span>), <span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>繼承的時候通過 <code>super(props)</code> 把 <code>props</code> 傳給父類，這樣就可以通過 <code>this.props</code> 獲取到配置參數：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeButton</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="built_in">super</span>(props) <span class="comment">// 加這一行</span></span><br><span class="line">    <span class="built_in">this</span>.state = &#123; <span class="attr">isLiked</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onClick () &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">isLiked</span>: !<span class="built_in">this</span>.state.isLiked</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//  按鈕樣式改成根據傳入的 props 資料作修改</span></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;button class=&#x27;like-btn&#x27; style=&quot;background-color: <span class="subst">$&#123;<span class="built_in">this</span>.props.bgColor&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;span class=&#x27;like-text&#x27;&gt;</span></span><br><span class="line"><span class="string">          <span class="subst">$&#123;<span class="built_in">this</span>.state.isLiked ? <span class="string">&#x27;取消&#x27;</span> : <span class="string">&#x27;点赞&#x27;</span>&#125;</span></span></span><br><span class="line"><span class="string">        &lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;👍&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">mount(<span class="keyword">new</span> LikeButton(&#123; <span class="attr">bgColor</span>: <span class="string">&#x27;red&#x27;</span> &#125;), wrapper)</span><br></pre></td></tr></table></figure>
+
+<h3 id="實作前端組建話總結"><a href="#實作前端組建話總結" class="headerlink" title="實作前端組建話總結"></a>實作前端組建話總結</h3><ul>
+<li>組件化可以幫助我們解決前端結構的複用性問題，整個頁面可以由這樣的不同的組件組合、嵌套構成。</li>
+<li>每個組件都有自己的狀態（上面的HTML 結構和內容）行為，組件的狀態和行為可以由數據狀態（state）和配置參數（props）決定，狀態和配置參數的改變都會影響組件的顯示形態。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/06/linux/linux01/" rel="prev" title="Change the Python3 default Version in Ubuntu">
+                  <i class="fa fa-chevron-left"></i> Change the Python3 default Version in Ubuntu
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clayton Shih</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
