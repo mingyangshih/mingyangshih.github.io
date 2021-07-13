@@ -71,3 +71,6 @@ likeButton.onStateChange = (oldEl, newEl) => {
 ```
 實例化以後新增 `onStateChange` 這個方法，可以自定義 `onStateChange` 的功能。這裡做的事是，每當 `setState` 中構造完新的DOM元素以後，就會通過 `onStateChange` 告知外部**插入新的DOM元素，然後刪除舊的元素，頁面就更新了**。
 雖然這種方法，每次更新都會重新新增或刪除DOM元素，耗費效能，但可以透過 Virtual-DOM 解決這個問題。
+
+### 參考資料
+https://hyf.js.org/react-naive-book (作者：鬍子大哈)

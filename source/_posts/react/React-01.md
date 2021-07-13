@@ -49,5 +49,4 @@ class LikeButton {
 
 ```
 ### 參考資料
-
-https://hyf.js.org/react-naive-book
+https://hyf.js.org/react-naive-book (作者：鬍子大哈)
