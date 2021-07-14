@@ -3,7 +3,7 @@
 title: Webpack Note 01
 date: 2021-06-30
 description: Webpack Learning Note
-categories: Frontend
+categories: Webpack
 tags: 
   - Webpack
 ---
@@ -33,7 +33,7 @@ npm install -g webpack
 * 在 `NPM Script` 裡定義的工作會優先使用本專案下的Webpack，寫在package.json內容如下：
 
 ``` json
-"script": {"start": "wenpack --config webpack.config.js"}
+"script": {"start": "webpack --config webpack.config.js"}
 ```
 
 ### Use Webpack
