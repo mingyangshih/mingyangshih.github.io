@@ -28,28 +28,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Webpack Learning Note">
+<meta name="description" content="Webpack Note 02 - 使用 Loader">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Webpack Note 01">
-<meta property="og:url" content="https://mingyangshih.github.io/2021/06/30/webpack/webpack-01/index.html">
+<meta property="og:title" content="Webpack Note 02 - 使用 Loader">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/07/14/webpack/webpack-02/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="Webpack Learning Note">
+<meta property="og:description" content="Webpack Note 02 - 使用 Loader">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-30T00:00:00.000Z">
+<meta property="article:published_time" content="2021-07-14T22:05:35.000Z">
 <meta property="article:modified_time" content="2021-07-14T14:55:47.410Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/2021/06/30/webpack/webpack-01/">
+<link rel="canonical" href="https://mingyangshih.github.io/2021/07/14/webpack/webpack-02/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/06/30/webpack/webpack-01/","path":"2021/06/30/webpack/webpack-01/","title":"Webpack Note 01"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/14/webpack/webpack-02/","path":"2021/07/14/webpack/webpack-02/","title":"Webpack Note 02 - 使用 Loader"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Webpack Note 01 | Clayton's Coding Note</title>
+<title>Webpack Note 02 - 使用 Loader | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -117,7 +117,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -130,7 +130,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webpack"><span class="nav-number">1.</span> <span class="nav-text">Install Webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Webpack-to-Project"><span class="nav-number">1.1.</span> <span class="nav-text">Install Webpack to Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Webpack-to-Global-Enviroment"><span class="nav-number">1.2.</span> <span class="nav-text">Install Webpack to Global Enviroment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Webpack"><span class="nav-number">1.3.</span> <span class="nav-text">Use Webpack</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/06/30/webpack/webpack-01/">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/14/webpack/webpack-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Webpack Note 01
+          Webpack Note 02 - 使用 Loader
         </h1>
 
         <div class="post-meta-container">
@@ -238,16 +237,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-30T00:00:00+00:00">2021-06-30</time>
+      <time title="Created: 2021-07-14 22:05:35 / Modified: 14:55:47" itemprop="dateCreated datePublished" datetime="2021-07-14T22:05:35+00:00">2021-07-14</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-14 14:55:47" itemprop="dateModified" datetime="2021-07-14T14:55:47+00:00">2021-07-14</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -261,7 +254,7 @@
   
 </div>
 
-            <div class="post-description">Webpack Learning Note</div>
+            <div class="post-description">Webpack Note 02 - 使用 Loader</div>
         </div>
       </header>
 
@@ -269,31 +262,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <!-- Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues). -->
-
-<h2 id="Install-Webpack"><a href="#Install-Webpack" class="headerlink" title="Install Webpack"></a>Install Webpack</h2><h3 id="Install-Webpack-to-Project"><a href="#Install-Webpack-to-Project" class="headerlink" title="Install Webpack to Project"></a>Install Webpack to Project</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#安裝最新的穩定版本到專案並存在package.json</span><br><span class="line">npm i webpack --save </span><br><span class="line"></span><br><span class="line"># 安裝指定版本</span><br><span class="line">npm install webpack@&lt;version&gt;</span><br><span class="line"></span><br><span class="line"># 安裝最新的體驗版本</span><br><span class="line">npm install webpack@beta</span><br></pre></td></tr></table></figure>
-
-<h3 id="Install-Webpack-to-Global-Enviroment"><a href="#Install-Webpack-to-Global-Enviroment" class="headerlink" title="Install Webpack to Global Enviroment"></a>Install Webpack to Global Enviroment</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g webpack</span><br></pre></td></tr></table></figure>
+        <p>### 使用 Loader</p>
+<p>Webpack 將所以檔案看作模組，CSS 檔案也不例外，要引用css 檔，則需要像引用JS檔一樣，修改入口檔案 <code>msin.ja</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// CommonJS標準匯入 CSS模組</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;/main.css&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CommonJS標準匯入 JS函數 </span></span><br><span class="line"><span class="keyword">const</span> show = <span class="built_in">require</span>(<span class="string">&#x27;./show.js)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// 執行函數</span></span><br><span class="line"><span class="string">show(&#x27;</span>Webpack<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+<p>因為Webpack 原生不支援解析非JS檔案，所以需要使用Webpack Loader，因此需要將Webpack的設定做修改。<br>Loader 具有檔案compile的功能，module.rules 陣列設定了一組規則，告訴Webpack在遇到哪些檔案時，要用哪些Loader去compule。</p>
 <ul>
-<li>在專案根目錄下對應的命令列裡面，會透過<code>node_modules/.bin/webpack</code>執行Webpack的可執行檔</li>
-<li>在 <code>NPM Script</code> 裡定義的工作會優先使用本專案下的Webpack，寫在package.json內容如下：</li>
+<li>use 屬性值，需要一個由Loader名稱組成的陣列，<font color="yellow" >Loader執行的順序是由後到前的。</font></li>
+<li>每個Loader都可以透過 URL querystring 的方式導入參數，若想知道 Loader 可以支援哪個屬性可以去查各個 Loader 的文件。</li>
+<li>在執行 Webpack 前 須先安裝有用到的 Loader</li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;script&quot;</span>: &#123;<span class="attr">&quot;start&quot;</span>: <span class="string">&quot;webpack --config webpack.config.js&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>如: <code>npm i -D style-loader css-loader --save</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// Webpack 執行入口檔案</span></span><br><span class="line">  <span class="attr">entry</span>:<span class="string">&#x27;./main.js&#x27;</span>,</span><br><span class="line">  <span class="attr">outpyt</span>: &#123; <span class="comment">// output 設定</span></span><br><span class="line">    <span class="comment">// 將所有依賴模組合併輸出到 bundle.js檔案中</span></span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>:path.resolve(__dirname,<span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>:&#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 用regular expression 去比對要用Loader 轉換的CSS檔案</span></span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use :[<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader?minimize&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Use-Webpack"><a href="#Use-Webpack" class="headerlink" title="Use Webpack"></a>Use Webpack</h3><p>透過 <strong>Webpack</strong> 建置一個採用CommonJS(use require)模組化撰寫的專案。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#index.html</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    ## 匯入webpack輸出的Javascript檔案</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./dist/bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>與index.html 互動的 show.js內容：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#show.js</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">content</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.document.getElementById(<span class="string">&#x27;app&#x27;</span>).innerText = <span class="string">&#x27;Hello&#x27;</span> + content;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = show;</span><br></pre></td></tr></table></figure>
-
-<p>Webpack 執行入口的main.js檔案內容：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#main.js</span><br><span class="line"><span class="keyword">const</span> show = <span class="built_in">require</span>(<span class="string">&#x27;./show.js&#x27;</span>);</span><br><span class="line">show(<span class="string">&#x27;Webpack&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>Webpack在執行建置時籲社會從專案根目錄下的webpack.config.js檔案中讀取設定，內容如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ##JavaScript 執行入口檔案</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./main.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>:&#123;</span><br><span class="line">    ## 將所有依賴的模組合併輸出到一個bundle.js檔案</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    ## 將輸出檔案都放到dist目錄下</span><br><span class="line">    <span class="attr">path</span>: path.resolve(__dirname,<span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在專案目錄下執行<code>npm start</code> 就會執行Webpack建置，在根目錄下會產生一個dist目錄，裡面含有bundle.js檔，其內容包含上面所寫的兩個模組，main.js跟show.js及內建的webpackBootstrap啟動函數。這時用瀏覽器開啟index.html就可以看到 <code>Hello, Webpack</code>。</p>
-<p>Ｗebpack是一個包裝模組化JavaScript的工具，會從main.js出發，辨別出原始程式中的模組化匯入敘述，遞迴的找出入口檔案的所有依賴，將入口和其所有依賴包裝到一個單獨的檔案中。Webpack2 開始已經內建對ES6, CommonJS, AMD模組化的敘述支援。</p>
+<p>執行 Webpack 後會發現CSS 被寫道 JS 中，因為中間透過 style-loader 處理的結果。<br>Loader 傳入屬性的方法除了，querystring 外，也可以透過 Object 實現</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">use:[</span><br><span class="line">  <span class="string">&#x27;style-loader&#x27;</span>,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">loader</span>: <span class="string">&#x27;css-loader&#x27;</span>,</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="attr">minimize</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>除了在 <code>webpack.config.js</code> 設定檔中設定 Loader，還可以在原始程式中（main.js）指定用什麼 Loader去處理檔案。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;style-loader!css-leader!.main.css&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>這樣就可跟上方有一樣的效果。</p>
 
     </div>
 
@@ -310,11 +295,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/07/13/linux/linux02/" rel="prev" title="Copy File or Directory to Linux VM Cloud">
+                  <i class="fa fa-chevron-left"></i> Copy File or Directory to Linux VM Cloud
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/03/react/React-01/" rel="next" title="React小書 Note 01">
-                  React小書 Note 01 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
