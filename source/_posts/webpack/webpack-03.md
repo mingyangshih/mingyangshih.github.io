@@ -97,3 +97,8 @@ module.exports ={
   "webpack-cli": "^4.7.2"
 }
 ```
+執行完成後，可以發現 dist 資料夾下出現一個 [name]_[hash8].css 的檔案，bundle.js內也沒有 CSS 相關內容。
+
+### 小結
+Webpack 是透過 plugins 屬性來設定需要使用的外掛程式清單的， plugins 屬性是一個陣列，裡面的每一項都是外掛程式的 instance，在產生 instance 時可以透過建置函數傳入這個元件支援的設定屬性。
+如：filename 屬性，可告訴外掛程式 CSS 檔名希望產生的格式。
