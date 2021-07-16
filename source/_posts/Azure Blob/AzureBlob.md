@@ -131,7 +131,7 @@ def getSAS(request: Request, q: Optional[str] = None):
 
 * [How to Use SAS Tokens with Azure Blob Storage](https://nxt.engineering/en/blog/sas_token/)
 
-* [Azure document for @azure/storage-blob](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.)html#authenticate-the-client
+* [Azure document for @azure/storage-blob](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.)
 
 * [Create an account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas)
 
@@ -140,5 +140,9 @@ def getSAS(request: Request, q: Optional[str] = None):
 * [Generate service level SAS for a container](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/globals.html#generateblobsasqueryparameters)
 
 * [Azure SDK for Python](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient?view=azure-python)
+
+* [Python Generate SAS](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-blob/12.0.0b5/azure.storage.blob.html?highlight=generate_container_sas#azure.storage.blob.generate_container_sas)
+
+* [Python Generate SAS Demo](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L145)
 
 * [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-storage-blob/12.6.0/index.html)
