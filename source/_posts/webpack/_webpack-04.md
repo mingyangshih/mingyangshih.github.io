@@ -7,6 +7,41 @@ tags:
   -Webpack
 ---
 ## html-webpack-plugin 自動把檔案匯入到html
+打包整個專案時，透過需要將打包出來的 CSS, JS 檔加到 html檔內，若檔案變多時就不太可能透過人工去匯入，因此可以透過 `html-webpack-plug` 這個 plugin 讓檔案自動加到 html 檔案中。
+
+``` js
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+module.exports ={
+  entry: './main.js',
+  output:{
+    filename: 'bundle.[hash].js',
+    path: path.resolve(__dirname,'./dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename :`[name]_[contenthash:8].css`
+    }),
+    new HtmlWebpackPlugin({
+      template:'index.html'
+    })
+  ],
+}
+```
+
+
 ## 使用 DevServer
 
 在實際開發中會需要
