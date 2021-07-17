@@ -28,28 +28,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Copy File to Linux VM Cloud">
+<meta name="description" content="Webpack Note 04 - 使用 DevServer及html-webpack-plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Copy File or Directory to Linux VM Cloud">
-<meta property="og:url" content="https://mingyangshih.github.io/2021/07/13/linux/linux02/index.html">
+<meta property="og:title" content="Webpack Note 04 - 使用 DevServer及html-webpack-plugin">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="Copy File to Linux VM Cloud">
+<meta property="og:description" content="Webpack Note 04 - 使用 DevServer及html-webpack-plugin">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-13T10:38:04.000Z">
-<meta property="article:modified_time" content="2021-07-17T08:58:23.177Z">
+<meta property="article:published_time" content="2021-07-15T23:04:59.000Z">
+<meta property="article:modified_time" content="2021-07-17T08:58:23.181Z">
 <meta property="article:author" content="Clayton Shih">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/2021/07/13/linux/linux02/">
+<link rel="canonical" href="https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/13/linux/linux02/","path":"2021/07/13/linux/linux02/","title":"Copy File or Directory to Linux VM Cloud"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/","path":"2021/07/15/webpack/webpack-04/","title":"Webpack Note 04 - 使用 DevServer及html-webpack-plugin"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Copy File or Directory to Linux VM Cloud | Clayton's Coding Note</title>
+<title>Webpack Note 04 - 使用 DevServer及html-webpack-plugin | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A4%87%E8%A3%BD%E6%AA%94%E6%A1%88"><span class="nav-number">1.</span> <span class="nav-text">複製檔案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A4%87%E8%A3%BD%E7%9B%AE%E9%8C%84"><span class="nav-number">2.</span> <span class="nav-text">複製目錄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%A3%93%E7%B8%AE"><span class="nav-number">3.</span> <span class="nav-text">資料壓縮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E5%82%B3%E8%BC%B8%E9%80%9F%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">限制傳輸速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E9%80%A3%E6%8E%A5%E5%9F%A0"><span class="nav-number">5.</span> <span class="nav-text">自訂連接埠</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-webpack-plugin-%E8%87%AA%E5%8B%95%E6%8A%8A%E6%AA%94%E6%A1%88%E5%8C%AF%E5%85%A5%E5%88%B0html"><span class="nav-number">1.</span> <span class="nav-text">html-webpack-plugin 自動把檔案匯入到html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-DevServer"><span class="nav-number">2.</span> <span class="nav-text">使用 DevServer</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +215,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/13/linux/linux02/">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Copy File or Directory to Linux VM Cloud
+          Webpack Note 04 - 使用 DevServer及html-webpack-plugin
         </h1>
 
         <div class="post-meta-container">
@@ -239,7 +239,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-13 10:38:04" itemprop="dateCreated datePublished" datetime="2021-07-13T10:38:04+00:00">2021-07-13</time>
+      <time title="Created: 2021-07-15 23:04:59" itemprop="dateCreated datePublished" datetime="2021-07-15T23:04:59+00:00">2021-07-15</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -254,14 +254,14 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+          <a href="/categories/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">Copy File to Linux VM Cloud</div>
+            <div class="post-description">Webpack Note 04 - 使用 DevServer及html-webpack-plugin</div>
         </div>
       </header>
 
@@ -269,20 +269,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>要在不同的 Linux 主機之間複製檔案，可透過 scp 指令，它可以透過 SSH 安全加密傳輸的方式，將本地端的檔案或目錄複製到遠端，或是將遠端的資料複製到本地端，而這個指令在 Mac OS X 中也同樣可以使用。</p>
-<h3 id="複製檔案"><a href="#複製檔案" class="headerlink" title="複製檔案"></a>複製檔案</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scp [帳號@來源主機]:來源檔案 [帳號@目的主機]:目的檔案</span><br><span class="line"></span><br><span class="line"># 從本地端複製到遠端</span><br><span class="line">scp /path/file1 myuser@ip位址:/path/file2</span><br><span class="line"></span><br><span class="line"># 從遠端複製到本地端</span><br><span class="line">scp myuser@ip位址:/path/file2 /path/file1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>這裡的帳號就是登入主機上的帳號（類似ssh指令的用法），如果省略帳號與主機，只寫一般的檔案路徑的話，就是代表本機的檔案。</p>
-<h3 id="複製目錄"><a href="#複製目錄" class="headerlink" title="複製目錄"></a>複製目錄</h3><p>若要複製整個目錄以及其下的所有檔案，則加上 <code>-r</code> 參數，若有金鑰則使用 <code>-i</code> 參數並帶入金鑰位置 ：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scp -i [.pem key position] -r [local directory path] azureuser@ip_address:[remote directory path]</span><br><span class="line"></span><br><span class="line">指令架構是</span><br><span class="line">scp -i /金鑰位置 -r /本地位置 遠端位置</span><br><span class="line">遠端位置是 username@ip:/remote/file/path</span><br></pre></td></tr></table></figure>
+        <h2 id="html-webpack-plugin-自動把檔案匯入到html"><a href="#html-webpack-plugin-自動把檔案匯入到html" class="headerlink" title="html-webpack-plugin 自動把檔案匯入到html"></a>html-webpack-plugin 自動把檔案匯入到html</h2><p>打包整個專案時，透過需要將打包出來的 CSS, JS 檔加到 html檔內，若檔案變多時就不太可能透過人工去匯入，因此可以透過 <code>html-webpack-plug</code> 這個 plugin 讓檔案自動加到 html 檔案中。<br><code>npm install -D html-webpack-plug --save</code></p>
+<h2 id="使用-DevServer"><a href="#使用-DevServer" class="headerlink" title="使用 DevServer"></a>使用 DevServer</h2><p>在實際開發中會需要</p>
+<ul>
+<li>提供 HTTP or HTTPS服務而不是使用靜態檔案預覽</li>
+<li>監聽檔案的變化並自動更新網頁，做到即時預覽。</li>
+<li>支援 Source Map，以方便 Debug。</li>
+</ul>
+<p>Webpack 原生支援上述第二第三點，再結合官方提供的開發工具 DevServer 也可以很方便做到第一點。</p>
+<p>整合 DevServer 近專案前，須先透過下方指令安裝<br><code>npm install -D webpack-dev-server --save</code><br>安裝完後在 package.json scripts 中設定啟用相關內容，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports =&#123;</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./main.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>:&#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.[hash].js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: path.resolve(__dirname,<span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [MiniCssExtractPlugin.loader, <span class="string">&#x27;css-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;babel-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">      <span class="attr">filename</span> :<span class="string">`[name]_[contenthash:8].css`</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">template</span>:<span class="string">&#x27;index.html&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="資料壓縮"><a href="#資料壓縮" class="headerlink" title="資料壓縮"></a>資料壓縮</h3><p>若要將資料壓縮之後再傳送，減少網路頻寬的使用量，可以加上 -C 參數：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 資料壓縮</span><br><span class="line">scp -C /path/file1 myuser@ip位址:/path/file2</span><br></pre></td></tr></table></figure>
-
-<h3 id="限制傳輸速度"><a href="#限制傳輸速度" class="headerlink" title="限制傳輸速度"></a>限制傳輸速度</h3><p>若要限制網路的使用頻寬，可以用 -l 指定可用的網路頻寬上限值（單位為 Kbit/s）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 限制傳輸速度為 400 Kbit/s</span><br><span class="line">scp -l 400 /path/file1 myuser@ip位址:/path/file2</span><br></pre></td></tr></table></figure>
-
-<h3 id="自訂連接埠"><a href="#自訂連接埠" class="headerlink" title="自訂連接埠"></a>自訂連接埠</h3><p>一般 SSH 伺服器的連接埠號為 22，如果遇到使用非標準埠號的伺服器，可以用 -P 來指定埠號。若遠端的 SSH 伺服器使用 2222 這個連接埠，我們就可以這樣複製檔案：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用 2222 連接埠</span><br><span class="line">scp -P 2222 /path/file1 myuser@ip位址:/path/file2</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;webpack serve --mode development --open --hot&quot;</span>, <span class="comment">//啟動 webServer</span></span><br><span class="line">  <span class="attr">&quot;production&quot;</span>: <span class="string">&quot;webpack --mode production --config webpack.config.js&quot;</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -291,20 +289,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Webpack/" rel="tag"># Webpack</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/12/react/React-03/" rel="prev" title="React小書 Note 03">
-                  <i class="fa fa-chevron-left"></i> React小書 Note 03
+                <a href="/2021/07/14/webpack/webpack-03/" rel="prev" title="Webpack Note 03 - 使用 Plugin">
+                  <i class="fa fa-chevron-left"></i> Webpack Note 03 - 使用 Plugin
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/14/webpack/webpack-02/" rel="next" title="Webpack Note 02 - 使用 Loader">
-                  Webpack Note 02 - 使用 Loader <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/16/react/React-04/" rel="next" title="用 create-react-app 起一個 React 專案">
+                  用 create-react-app 起一個 React 專案 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
