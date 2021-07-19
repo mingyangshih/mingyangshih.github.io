@@ -9,6 +9,7 @@ tags:
 ## Component
 * 在 react 內每個東西都是一個 Component
 * 在每個 Component 內一定要有 render function 不然會有 error
+* 每個 render funtion 必須要回傳 JSX 元素。要注意的是，必須要用一個外層的 JSX元素 把所有內容包裹起來。回傳並列多個JSX 元素是不合法的。
 * Component 命名第一個字母一定要大寫
 
 ``` js 
