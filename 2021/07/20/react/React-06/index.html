@@ -28,28 +28,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Webpack Note 04 - 使用 DevServer及html-webpack-plugin">
+<meta name="description" content="State 與 改變 State">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Webpack Note 04 - 使用 DevServer及html-webpack-plugin">
-<meta property="og:url" content="https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/index.html">
+<meta property="og:title" content="State 與 改變 State">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/07/20/react/React-06/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="Webpack Note 04 - 使用 DevServer及html-webpack-plugin">
+<meta property="og:description" content="State 與 改變 State">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-15T23:04:59.000Z">
+<meta property="article:published_time" content="2021-07-20T22:18:38.000Z">
 <meta property="article:modified_time" content="2021-07-20T16:03:10.764Z">
 <meta property="article:author" content="Clayton Shih">
-<meta property="article:tag" content="Webpack">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/">
+<link rel="canonical" href="https://mingyangshih.github.io/2021/07/20/react/React-06/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/","path":"2021/07/15/webpack/webpack-04/","title":"Webpack Note 04 - 使用 DevServer及html-webpack-plugin"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/20/react/React-06/","path":"2021/07/20/react/React-06/","title":"State 與 改變 State"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Webpack Note 04 - 使用 DevServer及html-webpack-plugin | Clayton's Coding Note</title>
+<title>State 與 改變 State | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-webpack-plugin-%E8%87%AA%E5%8B%95%E6%8A%8A%E6%AA%94%E6%A1%88%E5%8C%AF%E5%85%A5%E5%88%B0html"><span class="nav-number">1.</span> <span class="nav-text">html-webpack-plugin 自動把檔案匯入到html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-DevServer"><span class="nav-number">2.</span> <span class="nav-text">使用 DevServer</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#State-and-Change-State"><span class="nav-number">1.</span> <span class="nav-text">State and Change State</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +215,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/15/webpack/webpack-04/">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/07/20/react/React-06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Webpack Note 04 - 使用 DevServer及html-webpack-plugin
+          State 與 改變 State
         </h1>
 
         <div class="post-meta-container">
@@ -238,30 +238,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-07-15 23:04:59" itemprop="dateCreated datePublished" datetime="2021-07-15T23:04:59+00:00">2021-07-15</time>
+      <time title="Created: 2021-07-20 22:18:38 / Modified: 16:03:10" itemprop="dateCreated datePublished" datetime="2021-07-20T22:18:38+00:00">2021-07-20</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-20 16:03:10" itemprop="dateModified" datetime="2021-07-20T16:03:10+00:00">2021-07-20</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a>
+          <a href="/categories/Frontend/" itemprop="url" rel="index"><span itemprop="name">Frontend</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">Webpack Note 04 - 使用 DevServer及html-webpack-plugin</div>
+            <div class="post-description">State 與 改變 State</div>
         </div>
       </header>
 
@@ -269,18 +263,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="html-webpack-plugin-自動把檔案匯入到html"><a href="#html-webpack-plugin-自動把檔案匯入到html" class="headerlink" title="html-webpack-plugin 自動把檔案匯入到html"></a>html-webpack-plugin 自動把檔案匯入到html</h2><p>打包整個專案時，透過需要將打包出來的 CSS, JS 檔加到 html檔內，若檔案變多時就不太可能透過人工去匯入，因此可以透過 <code>html-webpack-plug</code> 這個 plugin 讓檔案自動加到 html 檔案中。<br><code>npm install -D html-webpack-plug --save</code></p>
-<h2 id="使用-DevServer"><a href="#使用-DevServer" class="headerlink" title="使用 DevServer"></a>使用 DevServer</h2><p>在實際開發中會需要</p>
-<ul>
-<li>提供 HTTP or HTTPS服務而不是使用靜態檔案預覽</li>
-<li>監聽檔案的變化並自動更新網頁，做到即時預覽。</li>
-<li>支援 Source Map，以方便 Debug。</li>
+        <h2 id="State-and-Change-State"><a href="#State-and-Change-State" class="headerlink" title="State and Change State"></a>State and Change State</h2><ul>
+<li>一定要透過 <code>setState</code> 去修改 state 的狀態</li>
 </ul>
-<p>Webpack 原生支援上述第二第三點，再結合官方提供的開發工具 DevServer 也可以很方便做到第一點。</p>
-<p>整合 DevServer 近專案前，須先透過下方指令安裝<br><code>npm install -D webpack-dev-server --save</code><br>安裝完後在 package.json scripts 中設定啟用相關內容，</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports =&#123;</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./main.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>:&#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.[hash].js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: path.resolve(__dirname,<span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [MiniCssExtractPlugin.loader, <span class="string">&#x27;css-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;babel-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">      <span class="attr">filename</span> :<span class="string">`[name]_[contenthash:8].css`</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">template</span>:<span class="string">&#x27;index.html&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;webpack serve --mode development --open --hot&quot;</span>, <span class="comment">//啟動 webServer</span></span><br><span class="line">  <span class="attr">&quot;production&quot;</span>: <span class="string">&quot;webpack --mode production --config webpack.config.js&quot;</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// super() 會去呼叫 Component 的 constructor</span></span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>()</span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      <span class="attr">counter</span>: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若不做這個動作會產生錯誤 setState is undefined 跟 this有關</span></span><br><span class="line">    <span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">counter</span>: <span class="built_in">this</span>.state.counter ++</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>React<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;h1&gt;&#123;<span class="built_in">this</span>.state.counter&#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因為this 的值取決於 function 被呼叫的時候<br>將 this 對應到 class 實例的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 在 constructor 終將方法綁定到 this</span></span><br><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">    <span class="attr">counter</span>: <span class="built_in">this</span>.state.counter ++</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2 在 onClick 綁定事件時 bind this</span></span><br><span class="line">&lt;h1 onClick=&#123;<span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>)&#125;&gt;React&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3 透過arrow funtcion</span></span><br><span class="line">handleClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">    <span class="attr">counter</span>: <span class="built_in">this</span>.state.counter ++</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -289,21 +277,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+              <a href="/tags/React/" rel="tag"># React</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/14/webpack/webpack-03/" rel="prev" title="Webpack Note 03 - 使用 Plugin">
-                  <i class="fa fa-chevron-left"></i> Webpack Note 03 - 使用 Plugin
+                <a href="/2021/07/19/react/React-05/" rel="prev" title="Component, Render function, JSX 語法, React 事件機制">
+                  <i class="fa fa-chevron-left"></i> Component, Render function, JSX 語法, React 事件機制
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/16/react/React-04/" rel="next" title="用 create-react-app 起一個 React 專案">
-                  用 create-react-app 起一個 React 專案 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
