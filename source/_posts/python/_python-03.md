@@ -25,3 +25,31 @@ else:
 == : equal to
 != : not equal to
 ```
+
+### Get remainder 
+```python
+7%2 # 1
+
+# check even or not 
+number = int(input("Which number do you want to check?"))
+
+if number % 2 == 0 :
+    print('This is an even number.')
+else:
+    print('Thisi is an odd number.')
+```
+
+### Nested if statements and elif statements
+
+``` python
+if condition:
+  if another conditino:
+    do this
+  else: 
+    do shit
+elif condition2:
+  do B
+else:
+  do this
+
+``` 
