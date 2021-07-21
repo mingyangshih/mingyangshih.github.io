@@ -53,3 +53,14 @@ else:
   do this
 
 ``` 
+
+### Logical Operators
+``` python
+A and B
+C or D
+not E
+```
+
+### 補充
+* The `lower()` function changes all the letters in a string to lower case.
+* The `count()` function will give you the number of times a letter occurs in a string.
