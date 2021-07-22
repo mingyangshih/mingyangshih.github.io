@@ -28,19 +28,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="透過Browser取得存在Azure Storage內的 Blob data">
+<meta name="description" content="Azure SDK Manage Blob (Generate SAS for Azure Container)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript v12 SDK Manage Blob">
+<meta property="og:title" content="Azure SDK Manage Blob (Generate SAS for Azure Container)">
 <meta property="og:url" content="https://mingyangshih.github.io/2021/07/05/Azure%20Blob/AzureBlob/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="透過Browser取得存在Azure Storage內的 Blob data">
+<meta property="og:description" content="Azure SDK Manage Blob (Generate SAS for Azure Container)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-05T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-21T15:30:46.522Z">
+<meta property="article:modified_time" content="2021-07-22T14:47:09.778Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="Azure Storage">
-<meta property="article:tag" content="Frontend">
-<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
@@ -48,10 +46,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/05/Azure%20Blob/AzureBlob/","path":"2021/07/05/Azure Blob/AzureBlob/","title":"JavaScript v12 SDK Manage Blob"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/07/05/Azure%20Blob/AzureBlob/","path":"2021/07/05/Azure Blob/AzureBlob/","title":"Azure SDK Manage Blob (Generate SAS for Azure Container)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>JavaScript v12 SDK Manage Blob | Clayton's Coding Note</title>
+<title>Azure SDK Manage Blob (Generate SAS for Azure Container) | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -147,7 +145,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -160,7 +158,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -186,7 +184,7 @@
         <h3 class="widget-title">Tags Cloud</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frontend/" rel="tag">Frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">4</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">4</span></li></ul>
             </canvas>
         </div>
     </div>
@@ -230,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript v12 SDK Manage Blob
+          Azure SDK Manage Blob (Generate SAS for Azure Container)
         </h1>
 
         <div class="post-meta-container">
@@ -248,7 +246,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-21 15:30:46" itemprop="dateModified" datetime="2021-07-21T15:30:46+00:00">2021-07-21</time>
+        <time title="Modified: 2021-07-22 14:47:09" itemprop="dateModified" datetime="2021-07-22T14:47:09+00:00">2021-07-22</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,7 +261,7 @@
   
 </div>
 
-            <div class="post-description">透過Browser取得存在Azure Storage內的 Blob data</div>
+            <div class="post-description">Azure SDK Manage Blob (Generate SAS for Azure Container)</div>
         </div>
       </header>
 
@@ -326,8 +324,6 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Azure-Storage/" rel="tag"># Azure Storage</a>
-              <a href="/tags/Frontend/" rel="tag"># Frontend</a>
-              <a href="/tags/React/" rel="tag"># React</a>
           </div>
 
         
