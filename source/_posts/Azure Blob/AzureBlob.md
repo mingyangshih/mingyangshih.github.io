@@ -1,12 +1,10 @@
 ---
-title: JavaScript v12 SDK Manage Blob
+title: Azure SDK Manage Blob (Generate SAS for Azure Container)
 date: 2021-07-05
-description: 透過Browser取得存在Azure Storage內的 Blob data
+description: Azure SDK Manage Blob (Generate SAS for Azure Container)
 categories: Azure Storage
 tags: 
   - Azure Storage
-  - Frontend
-  - React
 ---
 
 因工作上須透過Browser取得存在Azure Storage內的 Blob data，在此做個紀錄
