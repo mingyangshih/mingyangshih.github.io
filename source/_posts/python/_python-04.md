@@ -16,6 +16,8 @@ import random
 
 a = random.randint(1, 10)
 print(a)
+
+b = random.random() # 產生 [0,1) 的隨機浮點數。
 ```
 
-* module 是什麼
+* module 是什麼：一個.py檔可視為一個 module
