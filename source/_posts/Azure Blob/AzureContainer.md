@@ -54,6 +54,7 @@ with open(upload_file_path,'rb') as data:
 
 ### 上傳一個資料夾內的資料
 
+跟上完單一檔案一樣的方式，透過迴圈開啟每個檔案的二元碼並上傳。
 ``` python
 print(" *****upload folder***** ")
 account_url= "https://{storage_account_name}.blob.core.windows.net"
