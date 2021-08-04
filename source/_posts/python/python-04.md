@@ -20,6 +20,14 @@ print(a)
 
 b = random.random() # 產生 [0,1) 的隨機浮點數。
 print(b)
+
+# 從 list 中隨機選出一元素
+x = [1,2,3,4,5]
+random.choice(x)
+
+# 重新隨機編排一個 list
+x = [1,2,3,4,5]
+random.shuffle(x)
 ```
 
 * module 是什麼：一個.py檔可視為一個 module
