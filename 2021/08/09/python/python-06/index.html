@@ -28,24 +28,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Clayton&#39;s Coding Note">
-<meta property="og:url" content="https://mingyangshih.github.io/archives/page/3/index.html">
+<meta name="description" content="100 Days of Code - Python Functions and Karel (Day6)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="100 Days of Code - Python Functions and Karel (Day6)">
+<meta property="og:url" content="https://mingyangshih.github.io/2021/08/09/python/python-06/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
+<meta property="og:description" content="100 Days of Code - Python Functions and Karel (Day6)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-09T22:27:40.000Z">
+<meta property="article:modified_time" content="2021-08-11T16:08:11.186Z">
 <meta property="article:author" content="Clayton Shih">
-<meta property="article:tag" content="前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,CSS,SCSS">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/archives/page/3/">
+<link rel="canonical" href="https://mingyangshih.github.io/2021/08/09/python/python-06/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/page/3/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/08/09/python/python-06/","path":"2021/08/09/python/python-06/","title":"100 Days of Code - Python Functions and Karel (Day6)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | Clayton's Coding Note</title>
+<title>100 Days of Code - Python Functions and Karel (Day6) | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -113,7 +117,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -126,6 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function"><span class="nav-number">1.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Indentation-in-python"><span class="nav-number">2.</span> <span class="nav-text">Indentation in python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#While-Loops"><span class="nav-number">3.</span> <span class="nav-text">While Loops</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,112 +204,108 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 24 posts in total. Keep on posting.</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/08/09/python/python-06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Clayton Shih">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clayton's Coding Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          100 Days of Code - Python Functions and Karel (Day6)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-09 22:27:40" itemprop="dateCreated datePublished" datetime="2021-08-09T22:27:40+00:00">2021-08-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-11 16:08:11" itemprop="dateModified" datetime="2021-08-11T16:08:11+00:00">2021-08-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">100 Days of Code - Python Functions and Karel (Day6)</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Defining Function</span></span><br><span class="line"><span class="comment"># 使用 def 關鍵字定義一個 function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_function</span>():</span> </span><br><span class="line">  <span class="comment"># write some code</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Indentation-in-python"><a href="#Indentation-in-python" class="headerlink" title="Indentation in python"></a>Indentation in python</h3><ul>
+<li>python 文件建議使用 四個 space 做縮排</li>
+<li>tab 跟 space 在同一個文件中不能混用</li>
+</ul>
+<h3 id="While-Loops"><a href="#While-Loops" class="headerlink" title="While Loops"></a>While Loops</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for loops</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> list_of_items:</span><br><span class="line">  <span class="comment"># Do Something to each item</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> number <span class="keyword">in</span> <span class="built_in">range</span>(a,b):</span><br><span class="line">  <span class="built_in">print</span>(number)</span><br><span class="line"></span><br><span class="line"><span class="comment"># white loops</span></span><br><span class="line"><span class="keyword">while</span> some_thing_isTure:</span><br><span class="line">  <span class="comment"># Do Something repeatedly</span></span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-04T00:00:00+00:00"
-              content="2021-07-04">
-          07-04
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/04/react/React-02/" itemprop="url">
-            <span itemprop="name">React小書 Note 02</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/03/python/python-05/" rel="prev" title="100 Days of Code - For Loops, Range and Code Blocks (Day5)">
+                  <i class="fa fa-chevron-left"></i> 100 Days of Code - For Loops, Range and Code Blocks (Day5)
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-03T00:00:00+00:00"
-              content="2021-07-03">
-          07-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/03/python/python-01/" itemprop="url">
-            <span itemprop="name">100 Days of Code - The Complete Python Pro Bootcamp(Day1)</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-03T00:00:00+00:00"
-              content="2021-07-03">
-          07-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/03/react/React-01/" itemprop="url">
-            <span itemprop="name">React小書 Note 01</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-06-30T00:00:00+00:00"
-              content="2021-06-30">
-          06-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/30/webpack/webpack-01/" itemprop="url">
-            <span itemprop="name">Webpack Note 01</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+
+
+
 
 </div>
   </main>
