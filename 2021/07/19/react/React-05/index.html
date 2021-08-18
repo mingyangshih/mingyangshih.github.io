@@ -36,7 +36,7 @@
 <meta property="og:description" content="Component, Render function, JSX 語法, React 事件機制">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-19T22:00:44.000Z">
-<meta property="article:modified_time" content="2021-08-11T16:08:11.186Z">
+<meta property="article:modified_time" content="2021-08-18T15:28:07.677Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Component"><span class="nav-number">1.</span> <span class="nav-text">Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX-%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">JSX 語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E4%BA%8B%E4%BB%B6%E6%A9%9F%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">React 事件機制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event-%E5%B0%8D%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">event 對象</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Component"><span class="nav-number">1.</span> <span class="nav-text">Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX-%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">JSX 語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E4%BA%8B%E4%BB%B6%E6%A9%9F%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">React 事件機制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event-%E5%B0%8D%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">event 對象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E6%B8%B2%E6%9F%93%E6%A9%9F%E5%88%B6%E8%88%87-Virtual-DOM"><span class="nav-number">5.</span> <span class="nav-text">React 渲染機制與 Virtual DOM</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,7 +246,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-11 16:08:11" itemprop="dateModified" datetime="2021-08-11T16:08:11+00:00">2021-08-11</time>
+        <time title="Modified: 2021-08-18 15:28:07" itemprop="dateModified" datetime="2021-08-18T15:28:07+00:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,6 +299,12 @@
 <li><p>React.js 會給每個事件監聽傳入一個 event 物件，這個物件提供的功能和瀏覽器提供的功能一致，而且它是兼容所有瀏覽器的。</p>
 </li>
 <li><p>React.js 的事件監聽方法需要手動 bind 到當前實例，這種模式在React.js中非常常用。</p>
+</li>
+</ul>
+<h2 id="React-渲染機制與-Virtual-DOM"><a href="#React-渲染機制與-Virtual-DOM" class="headerlink" title="React 渲染機制與 Virtual DOM"></a>React 渲染機制與 Virtual DOM</h2><ul>
+<li><p>在 React 內透過 Virtual DOM 處理全部重新渲染的問題，若有狀態被修改，React 只會重新渲染被修改的部分。</p>
+</li>
+<li><p>Call render function 後會先產生 Virtual DOM 之後才會真的產生 DOM</p>
 </li>
 </ul>
 
