@@ -126,3 +126,9 @@ class Title extends Component {
 * React.js 會給每個事件監聽傳入一個 event 物件，這個物件提供的功能和瀏覽器提供的功能一致，而且它是兼容所有瀏覽器的。
 
 * React.js 的事件監聽方法需要手動 bind 到當前實例，這種模式在React.js中非常常用。
+
+## React 渲染機制與 Virtual DOM
+
+* 在 React 內透過 Virtual DOM 處理全部重新渲染的問題，若有狀態被修改，React 只會重新渲染被修改的部分。
+
+* Call render function 後會先產生 Virtual DOM 之後才會真的產生 DOM
