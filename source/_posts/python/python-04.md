@@ -47,5 +47,6 @@ fruits.append('banana')
 # random.choice(list)可從list中隨機選出一參數
 random.choice(fruist)
 
-
+# fruits.index('cherry') 可找出某個值在 list 中的索引值
+fruits.index('cherry')
 ```

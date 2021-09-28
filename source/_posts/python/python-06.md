@@ -30,7 +30,7 @@ for item in list_of_items:
 for number in range(a,b):
   print(number)
 
-# white loops
+# while loops
 while some_thing_isTure:
   # Do Something repeatedly
 ```
