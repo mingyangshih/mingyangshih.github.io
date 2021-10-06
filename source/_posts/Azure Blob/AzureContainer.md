@@ -5,8 +5,8 @@ description: Upload File or Folder To Azure Storage Account with azure-storage-b
 categories: Azure Storage
 tags:
   - Azure Storage
-  - Python 
-  - Python azure-storage-blob
+  - python 
+  - python azure-storage-blob
 ---
 
 ### 上傳單一檔案

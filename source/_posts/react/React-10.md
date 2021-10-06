@@ -40,7 +40,8 @@ class App extends React {
     return(
       <div>
         <div>
-          name: <input name="name" type="text" ref={this.input} onChange = {this.changehandler} value={this.state.name}>
+          name: <input name="name" type="text" onChange = {this.changehandler} value={this.state.name}>
+          name: <input type="text" ref = {this.input}>
         </div>
         <div>
           <input type="submit" onClick={this.clickhandler} >
