@@ -28,15 +28,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="React controlled 與 un-controlled 的差異">
+<meta name="description" content="React controlled 與 un-controlled 的差異 及 dangerouslySetHTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React controlled 與 un-controlled 的差異">
 <meta property="og:url" content="https://mingyangshih.github.io/2021/08/24/react/React-10/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="React controlled 與 un-controlled 的差異">
+<meta property="og:description" content="React controlled 與 un-controlled 的差異 及 dangerouslySetHTML">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-24T21:37:31.000Z">
-<meta property="article:modified_time" content="2021-10-06T15:14:04.558Z">
+<meta property="article:modified_time" content="2021-10-15T01:39:36.929Z">
 <meta property="article:author" content="Clayton Shih">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-controlled-%E8%88%87-un-controlled-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">1.</span> <span class="nav-text">React controlled 與 un-controlled 的差異</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-controlled-%E8%88%87-un-controlled-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">1.</span> <span class="nav-text">React controlled 與 un-controlled 的差異</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react-%E8%A3%9C%E5%85%85-dangerouslySetHTML-%E5%92%8C-style-%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">react 補充 (dangerouslySetHTML 和 style 属性)</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,7 +145,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -158,7 +158,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -184,7 +184,7 @@
         <h3 class="widget-title">Tags Cloud</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-azure-storage-blob/" rel="tag">python azure-storage-blob</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">-python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-azure-storage-blob/" rel="tag">python azure-storage-blob</a><span class="tag-list-count">1</span></li></ul>
             </canvas>
         </div>
     </div>
@@ -246,7 +246,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-06 15:14:04" itemprop="dateModified" datetime="2021-10-06T15:14:04+00:00">2021-10-06</time>
+        <time title="Modified: 2021-10-15 01:39:36" itemprop="dateModified" datetime="2021-10-15T01:39:36+00:00">2021-10-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
   
 </div>
 
-            <div class="post-description">React controlled 與 un-controlled 的差異</div>
+            <div class="post-description">React controlled 與 un-controlled 的差異 及 dangerouslySetHTML</div>
         </div>
       </header>
 
@@ -274,6 +274,13 @@
 <li>uncontrolled component : component 沒有跟 state 有相對應的 component 稱之。可透過 ref 取得 DOM 元素的值。</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">super</span>(props)</span><br><span class="line">    <span class="comment">// 就會是對應到的 DOM 物件 (uncontrolled component)</span></span><br><span class="line">    <span class="built_in">this</span>.input = React.createRef()</span><br><span class="line">    <span class="comment">// controlled component 透過 state 去對應 UI</span></span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  clickhandler = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    alert(<span class="built_in">this</span>.input.current.value)</span><br><span class="line">  &#125;</span><br><span class="line">  changehandler = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      <span class="comment">// 一定要這樣刮起來，不然會被解譯成要改變 e.target.name</span></span><br><span class="line">      [e.target.name] = e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          name: &lt;input name=&quot;name&quot; type=&quot;text&quot; onChange = &#123;this.changehandler&#125; value=&#123;this.state.name&#125;&gt;</span><br><span class="line">          name: &lt;input type=&quot;text&quot; ref = &#123;this.input&#125;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;input type=&quot;submit&quot; onClick=&#123;this.clickhandler&#125; &gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;    </span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="react-補充-dangerouslySetHTML-和-style-属性"><a href="#react-補充-dangerouslySetHTML-和-style-属性" class="headerlink" title="react 補充 (dangerouslySetHTML 和 style 属性)"></a>react 補充 (dangerouslySetHTML 和 style 属性)</h3><p>React.js 提供了一個属性 <code>dangerouslySetInnerHTML</code>，可以讓我们設置元素的 <code>innerHTML</code>，<br>需要给 <code>dangerouslySetInnerHTML</code> 傳入一個物件，这個物件的 __html 属性值就相當於元素的 <code>innerHTML</code>，<br>這樣我們就可以動態渲染元素的 <code>innerHTML</code> 结構了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">render () &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">      <span class="attr">className</span>=<span class="string">&#x27;editor-wrapper&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">      <span class="attr">dangerouslySetInnerHTML</span>=<span class="string">&#123;&#123;__html:</span> <span class="attr">this.state.content</span>&#125;&#125; /&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 React.js 中你需要把 CSS 属性變成一個物件再傳给元素：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;h1 style=&#123;&#123;<span class="attr">fontSize</span>: <span class="string">&#x27;12px&#x27;</span>, <span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span>&#125;&#125;&gt;React.js Sample&lt;/h1&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
