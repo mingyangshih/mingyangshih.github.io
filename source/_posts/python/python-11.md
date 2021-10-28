@@ -4,7 +4,7 @@ date: 2021-10-24 22:44:34
 description: Scopes and Number
 categories: python
 tags:
-  -python
+  - python
 ---
 
 ### Namespaces : Local vs Global Scope
