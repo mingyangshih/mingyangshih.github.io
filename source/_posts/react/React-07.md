@@ -1,7 +1,7 @@
 ---
 title: React State 與 props
 date: 2021-07-26 22:40:28
-description: React State 與 props
+description: React State, props and defaultProps
 categories: Frontend
 tags:
   - React
