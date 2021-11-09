@@ -4,7 +4,7 @@ date: 2021-10-06 23:14:30
 description: Functions with Outputs
 categories: python
 tags:
-  -python
+  - python
 ---
 
 ### Functions with Outputs
