@@ -55,7 +55,7 @@ InputWithUserName = wrapWithLoadData(InputWithUserName, 'username')
 export default InputWithUserName
 ```
 
-只需要定義一個简单的 InputWithUserName，它會把 `props.data` 作為 `<input />` 的 `value` 值。然後把這個组件和 'username' 傳给 `wrapWithLoadData`，`wrapWithLoadData` 會 `return` 一個新的Component，用這個新的Component取代原来的 InputWithUserName，然後再export module。
+只需要定義一個簡單的 InputWithUserName，它會把 `props.data` 作為 `<input />` 的 `value` 值。然後把這個组件和 `username` 傳给 `wrapWithLoadData`，`wrapWithLoadData` 會 `return` 一個新的Component，用這個新的Component取代原来的 InputWithUserName，然後再export module。
 别人用這個Component時實際上是用了被加工過的Component：
 
 ``` js
