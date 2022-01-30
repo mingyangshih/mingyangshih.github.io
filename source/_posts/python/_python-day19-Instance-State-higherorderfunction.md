@@ -6,3 +6,10 @@ categories: python
 tags:
   - python
 ---
+
+### Python Higher Order Function and Event Listener
+
+
+``` python
+
+```
