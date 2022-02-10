@@ -4,7 +4,7 @@ date: 2021-09-02 22:00:48
 description: Redux
 categories: Frontend
 tags:
-  - React
+  - React (Huli)
 ---
 
 Redux 是實作狀態管理機制的一個套件，不只能用在 React，其概念是從 Flux 延伸而來。

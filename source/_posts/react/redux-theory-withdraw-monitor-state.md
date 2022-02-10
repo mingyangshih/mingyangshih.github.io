@@ -101,7 +101,7 @@ function createStore (state, stateChanger) {
 此外，也修改了 `dispatch` 每次當他被使用時，除了會呼叫 `stateChanger` 修改數據，還會遍歷 `listeners` `array`內的函數，並一個一個呼叫他；相當於我們可以透過 `subscribe` 傳入數據變化的監聽函數，每當 `dispatch` 的時候，監聽和樹就會被呼叫，這樣就可以在數據變化時進行重新渲染：
 只需要 `subscribe` 一次，後面不管如何 `dispatch` 進行修改數據， `renderApp` 函數都會被重新呼叫，頁面就會被重新渲染，這樣的訂閱模式還有好處就是，以後我們還可以拿同一塊數據來渲染別的頁面，此時 `dispatch` 導致的變化也會讓每個頁面都重新渲染。
 
-```js 
+```js  
 const store = createStore(appState, stateChanger)
 // 註冊函數至 listeners array中
 store.subscribe(() => renderApp(store.getState()))
