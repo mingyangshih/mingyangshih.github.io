@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HFE0Z4C4WF');
+</script>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Introduction of Frontend unit test with Jest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction of Frontend unit test with Jest">
+<meta property="og:url" content="https://mingyangshih.github.io/2022/02/11/Unit%20Test/unit-test/index.html">
+<meta property="og:site_name" content="Clayton&#39;s Coding Note">
+<meta property="og:description" content="Introduction of Frontend unit test with Jest">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-11T11:25:30.000Z">
+<meta property="article:modified_time" content="2022-02-12T16:01:13.633Z">
+<meta property="article:author" content="Clayton Shih">
+<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="Unit Test">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mingyangshih.github.io/2022/02/11/Unit%20Test/unit-test/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2022/02/11/Unit%20Test/unit-test/","path":"2022/02/11/Unit Test/unit-test/","title":"Introduction of Frontend unit test with Jest"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Introduction of Frontend unit test with Jest | Clayton's Coding Note</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Clayton's Coding Note</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AF%AB%E6%B8%AC%E8%A9%A6"><span class="nav-number">1.</span> <span class="nav-text">為什麼要寫測試</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E9%A1%9E%E5%88%A5"><span class="nav-number">2.</span> <span class="nav-text">前端測試類別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jest"><span class="nav-number">3.</span> <span class="nav-text">Jest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E7%92%B0%E5%A2%83%E4%B8%A6%E5%9F%B7%E8%A1%8C%E6%B8%AC%E8%A9%A6"><span class="nav-number">4.</span> <span class="nav-text">安裝環境並執行測試</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode-%E6%90%AD%E9%85%8D%E5%A5%97%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">VSCode 搭配套件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jest-snippets-cheat-sheet"><span class="nav-number">6.</span> <span class="nav-text">Jest snippets cheat sheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B%E7%9A%84%E6%A2%9D%E4%BB%B6%E9%A9%97%E8%AD%89%E6%96%B9%E5%BC%8F-matchers"><span class="nav-number">7.</span> <span class="nav-text">常見的條件驗證方式 - matchers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E6%AA%A2%E6%B8%AC"><span class="nav-number">8.</span> <span class="nav-text">物件檢測</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toBe-%E5%8F%8A-toEqual-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">9.</span> <span class="nav-text">toBe 及 toEqual 的差異</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B8%E5%80%BC%E6%AF%94%E8%BC%83"><span class="nav-number">10.</span> <span class="nav-text">數值比較</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E6%AA%A2%E6%9F%A5"><span class="nav-number">11.</span> <span class="nav-text">字串檢查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-%E5%85%A7%E6%98%AF%E5%90%A6%E5%90%AB%E6%9C%89%E7%89%B9%E5%AE%9A%E5%80%BC"><span class="nav-number">12.</span> <span class="nav-text">Array 內是否含有特定值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#describe"><span class="nav-number">13.</span> <span class="nav-text">describe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">14.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Clayton Shih</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:jsps595214@gmail.com" title="E-Mail → mailto:jsps595214@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+  
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tags Cloud</h3>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frontend/" rel="tag">Frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-azure-storage-blob/" rel="tag">python azure-storage-blob</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+        </div>
+    </div>
+  
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2022/02/11/Unit%20Test/unit-test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Clayton Shih">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clayton's Coding Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction of Frontend unit test with Jest
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-11 11:25:30" itemprop="dateCreated datePublished" datetime="2022-02-11T11:25:30+00:00">2022-02-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-12 16:01:13" itemprop="dateModified" datetime="2022-02-12T16:01:13+00:00">2022-02-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unit-Test/" itemprop="url" rel="index"><span itemprop="name">Unit Test</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Introduction of Frontend unit test with Jest</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="為什麼要寫測試"><a href="#為什麼要寫測試" class="headerlink" title="為什麼要寫測試"></a>為什麼要寫測試</h3><p>在開發時許多功能開發後要進行一連串動作驗證功能的正確性，如：重新點擊特定目標、重新填寫表單、送出表單等，當功能越來越複雜時，人工測試時間也會越來越長，撰寫測試工具可以節省許多時間並避免上線後才發生錯誤。</p>
+<ul>
+<li>避免修改程式碼後的錯誤：修改程式的過程中可能會影響到其他程式碼，A 處修改的原始碼卻使看似毫無關聯的 B 處錯誤。</li>
+<li>不需要每次修改都重新人工測試。</li>
+</ul>
+<h3 id="前端測試類別"><a href="#前端測試類別" class="headerlink" title="前端測試類別"></a>前端測試類別</h3><ol>
+<li>Unit Test : 是以行為進行測試，驗證運行是否符合結果。</li>
+<li>E2E Test : 模擬使用者在瀏覽器上的行為進行測驗。</li>
+</ol>
+<h3 id="Jest"><a href="#Jest" class="headerlink" title="Jest"></a>Jest</h3><p>Jest 在 React 中有許多開發者使用，Vue-Cli 中也是可做為預設的單元測試選項。</p>
+<p>單元測試的基本觀念是對 <code>function</code> 做測試，下面以一個簡單的運算做範例，會新增兩個檔案一個是 <code>count.js</code>(function 的行為) 另一個是 <code>count.test.js</code>(function的測試腳本)。</p>
+<p>要被測試的檔案必須 <code>export</code> 才能被測試檔案接收並測試。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// count.js</span></span><br><span class="line"><span class="keyword">const</span> count = &#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="function"><span class="keyword">function</span>(<span class="params">bill, price</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> bill - price;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = count;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>count.js</code> 檔名中補上 <code>.test.</code> 作為測試檔(測試預設的檔名)，測試黨內容會明確寫上 <code>測試的目標敘述 test(...)</code> ，並且定義 <code>測試的結果是否符合預期 expect()...</code> 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// count.test.js</span></span><br><span class="line"><span class="keyword">const</span> count = <span class="built_in">require</span>(<span class="string">&#x27;./count&#x27;</span>);</span><br><span class="line"></span><br><span class="line">test(<span class="string">&#x27;Test bill - price&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> bill = <span class="number">200</span>; </span><br><span class="line">  <span class="keyword">const</span> price = <span class="number">127</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 期望結果是符合預期的</span></span><br><span class="line">  expect(count.count(bill, price)).toBe(<span class="number">73</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><font color=#ffff00> 上方的測試腳本可拆成三個部分來看：</font></p>
+<ol>
+<li>描述測試內容或目標 <code>test(&#39;...&#39;, () =&gt; &#123;&#125;)</code></li>
+<li>引用要測試的函式 <code>count.count()</code></li>
+<li>測試的期望是什麼 <code>expect(...).toBe(...)</code> </li>
+</ol>
+<h3 id="安裝環境並執行測試"><a href="#安裝環境並執行測試" class="headerlink" title="安裝環境並執行測試"></a>安裝環境並執行測試</h3><ol>
+<li><code>npm install jest --save-dev</code> 安裝 Jest</li>
+<li>打開 <code>package.json</code> 內將 script 內新增方法並加入 <code>jest</code> </li>
+<li>執行  <code>npm run test</code> 查看結果，若執行成功會看到 <font color=#ffff00> <code>passed</code> </font> 文字</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;jest&quot;</span>: <span class="string">&quot;^27.5.1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;jest&quot;</span></span><br><span class="line"> <span class="comment">// 使用 npm run testwatch 時會持續用監控的形式，而不是只有單一次報告</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>監控測試：可將 <code>package.json</code> 中 <code>scripts</code> 方法改為如下，就可以不用每次都執行一次 <code>npm run test</code> </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;jest&quot;</span>: <span class="string">&quot;^27.5.1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;testwatch&quot;</span>: <span class="string">&quot;jest --watchAll&quot;</span></span><br><span class="line"> <span class="comment">// 使用 npm run testwatch 時會持續用監控的形式，而不是只有單一次報告</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="VSCode-搭配套件"><a href="#VSCode-搭配套件" class="headerlink" title="VSCode 搭配套件"></a>VSCode 搭配套件</h3><p>除了使用 terminal 執行測試外，Jest 與 VSCode 也有整合好的套件可以使用，不需要每次都執行 <code>npm run test</code>，即可以在每次存擋後看到測試的結果。<br>(Jest, Jest Snippets)。</p>
+<p>新增一個 <code>jest.config.js</code> ， 此測試檔案預設僅需要會出一空的物件即可。(即使用官方預設)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Jest-snippets-cheat-sheet"><a href="#Jest-snippets-cheat-sheet" class="headerlink" title="Jest snippets cheat sheet"></a>Jest snippets cheat sheet</h3><p><code>tb</code> -&gt; <code>expect().toBe()</code><br><code>tblt</code> -&gt; <code>expect().toBeLessThan()</code><br><code>tblte</code> -&gt; <code>expect().toBeLessThanOrEqual()</code></p>
+<h3 id="常見的條件驗證方式-matchers"><a href="#常見的條件驗證方式-matchers" class="headerlink" title="常見的條件驗證方式 - matchers"></a>常見的條件驗證方式 - matchers</h3><p>寫測試時，要讓值符合預期，Jest 中的 <code>expect</code> 後可以使用 <code>matchers</code> 做為條件驗證，如上方的範例 <code>expect(...).toBe(...)</code> 中的 <code>toBe</code> 就屬於 <code>matchers</code> ，作為檢測不同條件的驗證使用。</p>
+<ul>
+<li>開發中較常見的 <code>matchers</code>，新增 <code>fn.js</code> 作為範例。在檔案中定義了一些方法，這些方法會回傳計算結果、<code>null</code>、<code>undefined</code> 等各種值，另外還會回傳物件<font color=#ffff00> (物件的驗證概念與純值不同) </font></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fns = &#123;</span><br><span class="line">  <span class="attr">add</span>: <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2,</span><br><span class="line">  <span class="attr">isNull</span>: <span class="function">() =&gt;</span> <span class="literal">null</span>,</span><br><span class="line">  <span class="attr">isUndefined</span>: <span class="function">() =&gt;</span> <span class="literal">undefined</span>,</span><br><span class="line">  <span class="attr">isNaN</span>: <span class="function">() =&gt;</span> <span class="literal">NaN</span>,</span><br><span class="line">  <span class="attr">checkValue</span>: <span class="function">(<span class="params">val</span>) =&gt;</span> val,</span><br><span class="line">  <span class="attr">createUser</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = fns</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在檢查純值時除了 <code>toBe</code> 外，還有其他 <code>matchers</code> 可使用。</li>
+<li>在JS中如果檢查 <code>NaN === NaN</code> 會回傳 <code>false</code> 因為 <code>NaN</code> 不等於任何值，在 Jest 中可使用 <code>toBeNaN</code> 或 <code>toBe(NaN)</code> 做檢測。</li>
+<li>判斷 <code>truthy</code> <code>falsy</code> 並不一定完全是布林值的 <code>true</code> <code>false</code> ，可以使用 <code>toBeFalsy</code>、<code>toBeTruthy</code> 進行驗證。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fns = <span class="built_in">require</span>(<span class="string">&#x27;./fn&#x27;</span>);</span><br><span class="line"><span class="comment">// 判斷值是否完全相符，判斷是使用 Object.is()</span></span><br><span class="line">test(<span class="string">&#x27; Test add &#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect(fns.add(<span class="number">1</span>,<span class="number">3</span>)).toBe(<span class="number">4</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 測試回傳值是否為 null</span></span><br><span class="line">test(<span class="string">&#x27;Test null&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect(fns.isNull()).toBeNull();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 測試回傳值是否為 undefined</span></span><br><span class="line">test(<span class="string">&#x27;Test undefined&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect(fns.isUndefined()).toBeUndefined();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 測試回傳值是否為 NaN</span></span><br><span class="line">test(<span class="string">&#x27;Test NaN&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect(fns.isNaN()).toBe(<span class="literal">NaN</span>)</span><br><span class="line">  expect(fns.isNaN()).toBeNaN()</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 判斷 truthy or falsy</span></span><br><span class="line">test(<span class="string">&#x27;Test Truthy and Falsy&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect(fns.checkValue(<span class="number">2</span>)).toBeTruthy()</span><br><span class="line">  expect(fns.checkValue(<span class="number">0</span>)).toBeFalsy()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="物件檢測"><a href="#物件檢測" class="headerlink" title="物件檢測"></a>物件檢測</h3><ul>
+<li><font color=#ffff00> 物件比對 </font> : JavaScript 物件特性 <font color=#00ff> 物件是傳參考不是傳值 </font> 所以會出現物件內容相同但比較後的結果是 <code>false</code> 的情況。</li>
+<li>在 Jest 中也是一樣的概念，如果直接使用 <code>toBe</code> 檢測物件，儘管屬性值都相同，一樣會得到 <code>failed</code>的結果。要改成使用 <code>toEqual</code> 才能檢測兩個物件內的值是否相同。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  <span class="attr">a</span> : <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a === &#123;<span class="attr">a</span>: <span class="string">&#x27;a&#x27;</span>&#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;Test Object&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 下方執行會 failed</span></span><br><span class="line">  expect(fns.createUser()).toBe(&#123;<span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>&#125;)</span><br><span class="line">  <span class="comment">// 應該要改成</span></span><br><span class="line">  expect(fns.createUser()).toEqual(&#123;<span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>&#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="toBe-及-toEqual-的差異"><a href="#toBe-及-toEqual-的差異" class="headerlink" title="toBe 及 toEqual 的差異"></a>toBe 及 toEqual 的差異</h3><ul>
+<li><code>toBe</code> 是使用 <code>Object.is</code> 做判斷，不是使用 <code>===</code> 。</li>
+<li><code>toEqual</code> 是深度比對(deep equality)，全部透過 <code>Object.is</code> 比對物件或陣列內的值；如同將物件內的值一一取出比對，因此效能可能較差。</li>
+</ul>
+<h3 id="數值比較"><a href="#數值比較" class="headerlink" title="數值比較"></a>數值比較</h3><p>Jest 有提供 大於、小於、大於等於、小於等於 等方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;Test little than 10&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> num1 = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">const</span> num2 = <span class="number">4</span>;</span><br><span class="line">  expect(num1 + num2).toBeLessThan(<span class="number">10</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">test(<span class="string">&#x27;Test little than or equal 10&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> num1 = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">const</span> num2 = <span class="number">5</span>;</span><br><span class="line">  expect(num1 + num2).toBeLessThanOrEqual(<span class="number">10</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="字串檢查"><a href="#字串檢查" class="headerlink" title="字串檢查"></a>字串檢查</h3><p>除了使用 <code>toBe</code> 外，還可以使用 <code>toMatch</code> 搭配 Regular Expression 正規表達式進行驗證，如檢測Email格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;測試 email 格式是否正確&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect(<span class="string">&#x27;gres@gmail.com&#x27;</span>).toMatch(</span><br><span class="line">    <span class="regexp">/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/</span></span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Array-內是否含有特定值"><a href="#Array-內是否含有特定值" class="headerlink" title="Array 內是否含有特定值"></a>Array 內是否含有特定值</h3><p>Array 與 Object 檢測相同都是使用 <code>toEqual()</code> ，此外也可以使用 <code>toContain</code> 檢查 Array 中是否包含特定值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;Test Array Value&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> newArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">  expect(newArray).toContain(<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h3><p><code>describe</code> 的用途是提供一個群組的敘述：<br>執行 <code>npm run test</code> 後就可以顯示群組名稱及各個測試的內容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;....&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  test(<span class="string">&#x27;...&#x27;</span>,<span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line">  test(<span class="string">&#x27;...&#x27;</span>,<span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line">  test(<span class="string">&#x27;...&#x27;</span>,<span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a target="_blank" rel="noopener" href="https://www.casper.tw/development/2020/02/02/jest-intro/?fbclid=IwAR17OgIYp2Vsk8mdvR8C9oxMvdQgvaTr4pCsQd77buwFdbrokgt48g6UwdQ">十分鐘上手前端單元測試 - 使用 Jest</a><br><a target="_blank" rel="noopener" href="https://jestjs.io/docs/getting-started">Jest 官網</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Frontend/" rel="tag"># Frontend</a>
+              <a href="/tags/Unit-Test/" rel="tag"># Unit Test</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/09/react/redux-theory-pure-function/" rel="prev" title="Introduction of Redux - Pure Function">
+                  <i class="fa fa-chevron-left"></i> Introduction of Redux - Pure Function
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clayton Shih</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
