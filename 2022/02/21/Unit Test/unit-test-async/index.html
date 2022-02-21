@@ -28,28 +28,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Object Oriented Programming(OOP) of Python">
+<meta name="description" content="Introduction of Frontend unit test with Jest - Asynchronous and Ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="100 Days of Code - Object Oriented Programming(OOP) Day16)">
-<meta property="og:url" content="https://mingyangshih.github.io/2021/11/15/python/python-oop-day16/index.html">
+<meta property="og:title" content="Introduction of Frontend unit test with Jest - Asynchronous and Ajax">
+<meta property="og:url" content="https://mingyangshih.github.io/2022/02/21/Unit%20Test/unit-test-async/index.html">
 <meta property="og:site_name" content="Clayton&#39;s Coding Note">
-<meta property="og:description" content="Object Oriented Programming(OOP) of Python">
+<meta property="og:description" content="Introduction of Frontend unit test with Jest - Asynchronous and Ajax">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-15T08:58:34.000Z">
-<meta property="article:modified_time" content="2022-02-21T13:05:32.731Z">
+<meta property="article:published_time" content="2022-02-21T08:32:03.000Z">
+<meta property="article:modified_time" content="2022-02-21T13:05:32.727Z">
 <meta property="article:author" content="Clayton Shih">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="Unit Test">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mingyangshih.github.io/2021/11/15/python/python-oop-day16/">
+<link rel="canonical" href="https://mingyangshih.github.io/2022/02/21/Unit%20Test/unit-test-async/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2021/11/15/python/python-oop-day16/","path":"2021/11/15/python/python-oop-day16/","title":"100 Days of Code - Object Oriented Programming(OOP) Day16)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2022/02/21/Unit%20Test/unit-test-async/","path":"2022/02/21/Unit Test/unit-test-async/","title":"Introduction of Frontend unit test with Jest - Asynchronous and Ajax"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>100 Days of Code - Object Oriented Programming(OOP) Day16) | Clayton's Coding Note</title>
+<title>Introduction of Frontend unit test with Jest - Asynchronous and Ajax | Clayton's Coding Note</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
@@ -130,7 +131,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-use-OOP-Classes-and-Objects"><span class="nav-number">1.</span> <span class="nav-text">How to use OOP : Classes and Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EX-Turtle-Graphics"><span class="nav-number">2.</span> <span class="nav-text">EX: Turtle Graphics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Class-in-Python"><span class="nav-number">3.</span> <span class="nav-text">Create Class in Python</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-file"><span class="nav-number">2.</span> <span class="nav-text">Test file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Assertions"><span class="nav-number">3.</span> <span class="nav-text">Assertions</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2021/11/15/python/python-oop-day16/">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2022/02/21/Unit%20Test/unit-test-async/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          100 Days of Code - Object Oriented Programming(OOP) Day16)
+          Introduction of Frontend unit test with Jest - Asynchronous and Ajax
         </h1>
 
         <div class="post-meta-container">
@@ -238,30 +239,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-11-15 08:58:34" itemprop="dateCreated datePublished" datetime="2021-11-15T08:58:34+00:00">2021-11-15</time>
+      <time title="Created: 2022-02-21 08:32:03 / Modified: 13:05:32" itemprop="dateCreated datePublished" datetime="2022-02-21T08:32:03+00:00">2022-02-21</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-21 13:05:32" itemprop="dateModified" datetime="2022-02-21T13:05:32+00:00">2022-02-21</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+          <a href="/categories/Unit-Test/" itemprop="url" rel="index"><span itemprop="name">Unit Test</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">Object Oriented Programming(OOP) of Python</div>
+            <div class="post-description">Introduction of Frontend unit test with Jest - Asynchronous and Ajax</div>
         </div>
       </header>
 
@@ -269,16 +264,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="How-to-use-OOP-Classes-and-Objects"><a href="#How-to-use-OOP-Classes-and-Objects" class="headerlink" title="How to use OOP : Classes and Objects"></a>How to use OOP : Classes and Objects</h3><ul>
-<li>OOP is trying to model real world object.</li>
-<li>The two most important things that make up an object is attributes and methods.</li>
-</ul>
-<h3 id="EX-Turtle-Graphics"><a href="#EX-Turtle-Graphics" class="headerlink" title="EX: Turtle Graphics"></a>EX: Turtle Graphics</h3><ul>
-<li>Screen is the turtle where to show up.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> Turtle, Screen</span><br><span class="line"></span><br><span class="line">timmy = Turtle() <span class="comment"># create a Turtle object called timmy</span></span><br><span class="line"></span><br><span class="line">timmy.shape(<span class="string">&quot;turtle&quot;</span>) <span class="comment"># funtion of timmy object which can change shape to a turtle.</span></span><br><span class="line">timmy.color(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>) <span class="comment"># change the color of the timmy object, red is outline, blue is color of object.</span></span><br><span class="line"></span><br><span class="line">my_screen = Screen()</span><br><span class="line"></span><br><span class="line">my_screen.exitonclick() <span class="comment"># allow code continue running until we click it</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_screen.canvheight) <span class="comment"># can get canvheight attribute.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>JavaScript is syncing and single thread language, so if there is asynchronous event will push into event queue until other codes which has been executed, event in event queue will be executed.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fn.js</span></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&#x27;axios&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fns = &#123;</span><br><span class="line">  <span class="attr">add</span>: <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2,</span><br><span class="line">  <span class="attr">isNull</span>: <span class="function">() =&gt;</span> <span class="literal">null</span>,</span><br><span class="line">  <span class="attr">isUndefined</span>: <span class="function">() =&gt;</span> <span class="literal">undefined</span>,</span><br><span class="line">  <span class="attr">isNaN</span>: <span class="function">() =&gt;</span> <span class="literal">NaN</span>,</span><br><span class="line">  <span class="attr">checkValue</span>: <span class="function">(<span class="params">val</span>) =&gt;</span> val,</span><br><span class="line">  <span class="attr">createUser</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">fetchData</span>: <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> axios.get(<span class="string">`https://jsonplaceholder.typicode.com/todos/<span class="subst">$&#123;num&#125;</span>`</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> res.data)</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = fns</span><br></pre></td></tr></table></figure>
 
-<h3 id="Create-Class-in-Python"><a href="#Create-Class-in-Python" class="headerlink" title="Create Class in Python"></a>Create Class in Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>:</span>   <span class="comment"># Always use PascalCase</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, user_id, user_name</span>):</span>  <span class="comment"># Will be called everytime creating a object</span></span><br><span class="line">    <span class="comment"># attributes of class</span></span><br><span class="line">    self.<span class="built_in">id</span> = user_id</span><br><span class="line">    self.username = user_name</span><br><span class="line">    self.following = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">follow</span>(<span class="params">self</span>):</span> <span class="comment"># method of class</span></span><br><span class="line">    user.followers += <span class="number">1</span></span><br><span class="line">    self.following += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">user_1 = User(<span class="string">&quot;001&quot;</span>,, <span class="string">&quot;Clayton&quot;</span>)</span><br><span class="line">user_2 = User(<span class="string">&quot;002&quot;</span>,, <span class="string">&quot;Jack&quot;</span>)</span><br><span class="line">user_1.follow(user_2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Test-file"><a href="#Test-file" class="headerlink" title="Test file"></a>Test file</h3><p><code>Promise</code> is common async method. Besides <code>Promise</code> there are <code>Async</code> , <code>Await</code> these two methods can execute in Node.js, so they can be used in <code>Jest</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;Test Asynchronous&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  test(<span class="string">&#x27;Test Async&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    expect.assertions(<span class="number">10</span>);</span><br><span class="line">    <span class="comment">// get data in then, so expect need to write in then, to make sure Promise has been executed.</span></span><br><span class="line">    <span class="keyword">return</span> fns.fetchData(<span class="number">10</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// check return data</span></span><br><span class="line">      <span class="built_in">console</span>.log(data)</span><br><span class="line">      <span class="comment">// check if data.title equal to expect data.</span></span><br><span class="line">      expect(data.title).toEqual(<span class="string">&#x27;illo est ratione doloremque quia maiores aut&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// Use ES6 async, await</span></span><br><span class="line">  test(<span class="string">&#x27;Test Async 2&#x27;</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    expect.assertions(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> res = <span class="keyword">await</span> fns.fetchData(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    expect(res.title).toEqual(<span class="string">&#x27;illo est ratione doloremque quia maiores aut&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Assertions"><a href="#Assertions" class="headerlink" title="Assertions"></a>Assertions</h3><p>Purpose of <code>assertions</code> is to make sure get <code>Promise</code> data. If we want to make sure our code to get <code>Promise Resolve</code> data, we can use <code>expect.assertions(num)</code> (num represents number of assertinos).</p>
+<p>當補上 <code>expect.assertions(1)</code> 就必須使用 <code>resolve</code> 的結果才能通過驗證， <code>expect.assertions</code> 在 <code>async</code> 的寫法也會更重要。</p>
+
     </div>
 
     
@@ -287,21 +281,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/Frontend/" rel="tag"># Frontend</a>
+              <a href="/tags/Unit-Test/" rel="tag"># Unit Test</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/11/10/python/python-PIL-IMG-to-Byte/" rel="prev" title="Python change data to bytes without saving to disk">
-                  <i class="fa fa-chevron-left"></i> Python change data to bytes without saving to disk
+                <a href="/2022/02/11/Unit%20Test/unit-test/" rel="prev" title="Introduction of Frontend unit test with Jest">
+                  <i class="fa fa-chevron-left"></i> Introduction of Frontend unit test with Jest
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/12/01/python/python-day18-Graphical-user-interface/" rel="next" title="100 Days of Code - Graphical User Interface(Day18)">
-                  100 Days of Code - Graphical User Interface(Day18) <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
