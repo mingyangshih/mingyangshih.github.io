@@ -43,3 +43,28 @@ a,b = b,a
 print("a: " + a)
 print("b: " + b)
 ```
+
+### Python 創建 Virtual Enviroment
+
+``` sh
+# 1. 創建一個dir
+mkdir pyenv
+
+# 2. 透過python 指令創建虛擬環境
+python3 -m ven {environment name}
+
+# 3. 使用環境
+source {environment name} /bin/activate
+
+# 4. 離開虛擬環境
+deactivate
+
+```
+
+### 記錄環境中使用過的套件
+
+``` sh
+pip3 freeze > requirements.txt
+
+pip3 install -r requirements.txt
+```
