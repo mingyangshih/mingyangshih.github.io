@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HFE0Z4C4WF');
+</script>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mingyangshih.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.5.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Introduction of Redux Share Store to Enhance Efficiency">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction of Redux Share Store to Enhance Efficiency">
+<meta property="og:url" content="https://mingyangshih.github.io/2022/03/01/react/redux-share-store-enhance-efficiency/index.html">
+<meta property="og:site_name" content="Clayton&#39;s Coding Note">
+<meta property="og:description" content="Introduction of Redux Share Store to Enhance Efficiency">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-01T10:35:13.000Z">
+<meta property="article:modified_time" content="2022-03-03T15:25:44.636Z">
+<meta property="article:author" content="Clayton Shih">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mingyangshih.github.io/2022/03/01/react/redux-share-store-enhance-efficiency/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mingyangshih.github.io/2022/03/01/react/redux-share-store-enhance-efficiency/","path":"2022/03/01/react/redux-share-store-enhance-efficiency/","title":"Introduction of Redux Share Store to Enhance Efficiency"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Introduction of Redux Share Store to Enhance Efficiency | Clayton's Coding Note</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFE0Z4C4WF"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-HFE0Z4C4WF","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Clayton's Coding Note</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E9%AB%98%E5%85%B1%E4%BA%AB%E7%B5%90%E6%A7%8B%E7%9A%84%E6%80%A7%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">提高共享結構的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-%E8%AA%9E%E6%B3%95%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.1.</span> <span class="nav-text">ES6 語法介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%84%AA%E5%8C%96%E6%80%A7%E8%83%BD"><span class="nav-number">1.2.</span> <span class="nav-text">優化性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A2%BC"><span class="nav-number">1.3.</span> <span class="nav-text">完整代碼</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Clayton Shih</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:jsps595214@gmail.com" title="E-Mail → mailto:jsps595214@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+  
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tags Cloud</h3>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Storage/" rel="tag">Azure Storage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frontend/" rel="tag">Frontend</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-azure-storage-blob/" rel="tag">python azure-storage-blob</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+        </div>
+    </div>
+  
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mingyangshih.github.io/2022/03/01/react/redux-share-store-enhance-efficiency/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Clayton Shih">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clayton's Coding Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction of Redux Share Store to Enhance Efficiency
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-01 10:35:13" itemprop="dateCreated datePublished" datetime="2022-03-01T10:35:13+00:00">2022-03-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-03-03 15:25:44" itemprop="dateModified" datetime="2022-03-03T15:25:44+00:00">2022-03-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Frontend/" itemprop="url" rel="index"><span itemprop="name">Frontend</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Introduction of Redux Share Store to Enhance Efficiency</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="提高共享結構的性能"><a href="#提高共享結構的性能" class="headerlink" title="提高共享結構的性能"></a>提高共享結構的性能</h2><p>從之前的 <font color=#ffff00>抽離Store和監控數據變化</font> 範例 code 中會遇到一些性能問題；就算不是更新 <code>state</code> 中的某個數據， <code>component</code> 畫面也會重新渲染。</p>
+<p>解決方法：在渲染函數執行前做判斷，判斷傳入的新數據和舊數據是否相同，不同的話就不執行渲染。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderApp</span> (<span class="params">newAppState, oldAppState = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (newAppState === oldAppState) <span class="keyword">return</span> <span class="comment">// 數據沒有變化就不render了</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;render app...&#x27;</span>)</span><br><span class="line">  renderTitle(newAppState.title, oldAppState.title)</span><br><span class="line">  renderContent(newAppState.content, oldAppState.content)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderTitle</span> (<span class="params">newTitle, oldTitle = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (newTitle === oldTitle) <span class="keyword">return</span> <span class="comment">// 數據沒有變化就不render了</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;render title...&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> titleDOM = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">  titleDOM.innerHTML = newTitle.text</span><br><span class="line">  titleDOM.style.color = newTitle.color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderContent</span> (<span class="params">newContent, oldContent = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (newContent === oldContent) <span class="keyword">return</span> <span class="comment">// 數據沒有變化就不render了</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;render content...&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> contentDOM = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">  contentDOM.innerHTML = newContent.text</span><br><span class="line">  contentDOM.style.color = newContent.color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用一個 <code>oldState</code> 變數保存舊的 <code>state</code>，在需要重新渲染的時候把新舊數據傳進去：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = createStore(appState, stateChanger)</span><br><span class="line"><span class="keyword">let</span> oldState = store.getState() <span class="comment">// 緩存舊的 state</span></span><br><span class="line">store.subscribe(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> newState = store.getState() <span class="comment">// 數據可能變化獲取新的 state</span></span><br><span class="line">  renderApp(newState, oldState) <span class="comment">// 把新舊數據傳進去渲染</span></span><br><span class="line">  oldState = newState <span class="comment">// 渲染後，新的 newState 變成舊的 oldState，等待下次數據變化再重新渲染</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>透過上面這個方法 <code>newContent === oldContent</code> 永遠都會是 <code>true</code> 因為物件是 Pass By Reference</p>
+<h3 id="ES6-語法介紹"><a href="#ES6-語法介紹" class="headerlink" title="ES6 語法介紹"></a>ES6 語法介紹</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; ...obj &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>const obj2 = &#123; ...obj &#125;</code> 建立一個新的物件 <code>obj2</code>，然後把 <code>obj</code> 所有屬性都複製到 <code>obj2</code> 裡面，類似於物件的淺複製。除了淺複製還可以覆蓋、解構物件屬性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="comment">// b被新的值取代，並新增c新的值</span></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; ...obj, <span class="attr">b</span>: <span class="number">3</span>, <span class="attr">c</span>: <span class="number">4</span> &#125; <span class="comment">// =&gt; &#123; a: 1, b: 3, c: 4&#125; </span></span><br></pre></td></tr></table></figure>
+
+<p>我們可以透過這種方法應用在 <code>state</code> 的更新上，一但我們要修改某些資料，就把修改路徑上的所有物件複製一遍，如：<br><code>appState</code> 和 <code>newAppState</code> 其實是兩個不同的物件，因為物件淺複製的原因，其實內部 <code>content</code> 指向的是同一個物件，但是因為 <code>title</code> 被一個新的物件覆蓋了，所以他們的 <code>title</code> 屬性指向的物件是不同的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newAppState = &#123; <span class="comment">// 新建一個 newAppState</span></span><br><span class="line">  ...appState, <span class="comment">// 複製 appState 內的內容</span></span><br><span class="line">  <span class="attr">title</span>: &#123; <span class="comment">// 用一個新的物件覆蓋原本title屬性</span></span><br><span class="line">    ...appState.title, <span class="comment">// 複製原來title物件裡面的內容</span></span><br><span class="line">    <span class="attr">text</span>: <span class="string">&#x27;《React.js book》&#x27;</span> <span class="comment">// 覆蓋text屬性</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 透過淺複製方法可以達到下方條件，提供判斷資料是否有改變並更新</span></span><br><span class="line">appState !== newAppState <span class="comment">// true</span></span><br><span class="line">appState.title !== newAppState.title <span class="comment">// true</span></span><br><span class="line">appState.content !== appState.content <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="優化性能"><a href="#優化性能" class="headerlink" title="優化性能"></a>優化性能</h3><p>修改 <code>stateChanger</code> 使其不會直接修改原來的數據 <code>state</code> ，而是感生上述的共享結構的物件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stateChanger</span> (<span class="params">state, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;UPDATE_TITLE_TEXT&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="comment">// 創建新的物件並回傳</span></span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">title</span>: &#123;</span><br><span class="line">          ...state.title,</span><br><span class="line">          <span class="attr">text</span>: action.text</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;UPDATE_TITLE_COLOR&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">title</span>: &#123;</span><br><span class="line">          ...state.title,</span><br><span class="line">          <span class="attr">color</span>: action.color</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整代碼"><a href="#完整代碼" class="headerlink" title="完整代碼"></a>完整代碼</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStore</span> (<span class="params">state, stateChanger</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> listeners = []</span><br><span class="line">  <span class="keyword">const</span> subscribe = <span class="function">(<span class="params">listener</span>) =&gt;</span> listeners.push(listener)</span><br><span class="line">  <span class="keyword">const</span> getState = <span class="function">() =&gt;</span> state</span><br><span class="line">  <span class="keyword">const</span> dispatch = <span class="function">(<span class="params">action</span>) =&gt;</span> &#123;</span><br><span class="line">    state = stateChanger(state, action) <span class="comment">// 覆蓋原物件</span></span><br><span class="line">    listeners.forEach(<span class="function">(<span class="params">listener</span>) =&gt;</span> listener())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123; getState, dispatch, subscribe &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderApp</span> (<span class="params">newAppState, oldAppState = &#123;&#125;</span>) </span>&#123; <span class="comment">// 預設參數 oldAppState = &#123;&#125;</span></span><br><span class="line">  <span class="keyword">if</span> (newAppState === oldAppState) <span class="keyword">return</span> <span class="comment">// 數據沒變化就不重新渲染</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;render app...&#x27;</span>)</span><br><span class="line">  renderTitle(newAppState.title, oldAppState.title)</span><br><span class="line">  renderContent(newAppState.content, oldAppState.content)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderTitle</span> (<span class="params">newTitle, oldTitle = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (newTitle === oldTitle) <span class="keyword">return</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;render title...&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> titleDOM = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">  titleDOM.innerHTML = newTitle.text</span><br><span class="line">  titleDOM.style.color = newTitle.color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderContent</span> (<span class="params">newContent, oldContent = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (newContent === oldContent) <span class="keyword">return</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;render content...&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> contentDOM = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">  contentDOM.innerHTML = newContent.text</span><br><span class="line">  contentDOM.style.color = newContent.color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> appState = &#123;</span><br><span class="line">  <span class="attr">title</span>: &#123;</span><br><span class="line">    <span class="attr">text</span>: <span class="string">&#x27;React.js 小书&#x27;</span>,</span><br><span class="line">    <span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">content</span>: &#123;</span><br><span class="line">    <span class="attr">text</span>: <span class="string">&#x27;React.js 小书内容&#x27;</span>,</span><br><span class="line">    <span class="attr">color</span>: <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stateChanger</span> (<span class="params">state, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;UPDATE_TITLE_TEXT&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="comment">// 創建新的物件並回傳</span></span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">title</span>: &#123;</span><br><span class="line">          ...state.title,</span><br><span class="line">          <span class="attr">text</span>: action.text</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;UPDATE_TITLE_COLOR&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="comment">// 創建新的物件並回傳</span></span><br><span class="line">        ...state,</span><br><span class="line">        <span class="attr">title</span>: &#123;</span><br><span class="line">          ...state.title,</span><br><span class="line">          <span class="attr">color</span>: action.color</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(appState, stateChanger)</span><br><span class="line"><span class="keyword">let</span> oldState = store.getState() <span class="comment">// 暫存舊的 state</span></span><br><span class="line">store.subscribe(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> newState = store.getState() <span class="comment">// 數據可能變化，獲取新的 state</span></span><br><span class="line">  renderApp(newState, oldState) <span class="comment">// 把新舊 state 傳進去判斷是否要渲染</span></span><br><span class="line">  oldState = newState <span class="comment">// 渲染完之後，新的 newState 變成舊的 oldState等待下一次更新數據</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">renderApp(store.getState()) <span class="comment">// 首次渲染畫面</span></span><br><span class="line">store.dispatch(&#123; <span class="attr">type</span>: <span class="string">&#x27;UPDATE_TITLE_TEXT&#x27;</span>, <span class="attr">text</span>: <span class="string">&#x27;《React.js book》&#x27;</span> &#125;) <span class="comment">// 修改標題文字</span></span><br><span class="line">store.dispatch(&#123; <span class="attr">type</span>: <span class="string">&#x27;UPDATE_TITLE_COLOR&#x27;</span>, <span class="attr">color</span>: <span class="string">&#x27;blue&#x27;</span> &#125;) <span class="comment">// 修改標題顏色</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/21/Unit%20Test/unit-test-async/" rel="prev" title="Introduction of Frontend unit test with Jest - Asynchronous and Ajax">
+                  <i class="fa fa-chevron-left"></i> Introduction of Frontend unit test with Jest - Asynchronous and Ajax
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clayton Shih</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
