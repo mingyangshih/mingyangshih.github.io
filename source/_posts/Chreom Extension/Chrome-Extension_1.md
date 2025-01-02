@@ -1,7 +1,7 @@
 ---
-title: Chrome Extension - 1
+title: Chrome Extension - manifest.json settings
 date: 2024-01-04 23:43:29
-description: Try to create a extension for work
+description: manifest.json settings
 categories: Extension
 tags:
   - Extension
