@@ -1,7 +1,7 @@
 ---
 title: Before Start to Develop Chrome Extensionsd
 date: 2025-01-02 21:44:24
-description: Some notes before start to develop.
+description: When to reload the extensions, show the logs and errors.
 categories: Extension
 tags:
   - Extension
